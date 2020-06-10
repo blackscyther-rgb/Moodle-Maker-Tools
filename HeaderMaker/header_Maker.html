@@ -38,14 +38,14 @@ font-size: 16pt;
 	<div class="form-group row">
 		<label class="col-sm-2" for="headerText">Header Text:</label>
 		<div class="col-sm-10">
-			<input type="text" id="headerText" size="40" required >
+			<input type="text" id="headerText" size="40" value="Sample Heading" onblur="generateBanner()" required >
 		</div>
 	</div>
 
 	 <div class="form-group row">
 		<label class="col-sm-2" for="jscolor">Banner Colour:</label>
 		<div class="col-sm-10">
-			<input id="jscolor" class="jscolor">
+			<input id="jscolor" value="FF5447" onblur="generateBanner()" class="jscolor">
 		</div>
 	</div>	
 
@@ -53,12 +53,12 @@ font-size: 16pt;
 		<label class="col-sm-2" for="headerTextColour">Text Colour:</label>
 		
 		<div class="col-sm-10">
-			<input type="radio" id="whiteColour" name="textColour" value="white" required>
-			<label style="font-weight: normal; font-size: 14pt" for="whiteColour">White</label>
+			<input type="radio" id="whiteColour" name="textColour" value="white" checked="checked" onclick="generateBanner()" required>
+			<label style="font-weight: normal; font-size: 14pt"  for="whiteColour">White</label>
 		
 		
 		
-			<input  style="margin-left: 20px;" type="radio" id="blackColour" name="textColour" value="black" required>
+			<input  style="margin-left: 20px;" type="radio" id="blackColour" name="textColour" value="black" onclick="generateBanner()" required>
 			<label style="font-weight: normal; font-size: 14pt" for="blackColour">Black</label>
 		</div>
 	</div>
@@ -67,7 +67,7 @@ font-size: 16pt;
 	
 		<label class="col-sm-2" for="selectedFAIcon">Banner Icon:</label>
 		<div class="col-sm-10">
-			<input type="text" id="selectedFAIcon" required >
+			<input type="text" id="selectedFAIcon" value="icicles" onblur="generateBanner()" required >
 			<pre>note: use <a href="https://fontawesome.com/cheatsheet" target="_new">Font Awesome Cheat Sheet</a> to find the icons text name. eg. ambulance</pre>
 		</div>
 	</div>	
@@ -78,13 +78,13 @@ font-size: 16pt;
 	
 		<div class="col-sm-10">
 			<div class="form-check form-check-inline">
-				<input class="form-check-input" type="radio" id="short" name="bannerHeight" value="short" required>
+				<input class="form-check-input" type="radio" id="short" name="bannerHeight" value="short" required onclick="generateBanner()" >
 				<label class="form-check-label" style="font-weight: normal; font-size: 14pt;" for="short">Short</label>
 				
-				<input style="margin-left: 20px;" class="form-check-input" type="radio" id="standard" checked="checked" name="bannerHeight" value="standard">
+				<input style="margin-left: 20px;" class="form-check-input" type="radio" id="standard" checked="checked" name="bannerHeight" value="standard" onclick="generateBanner()">
 				<label class="form-check-label" style="font-weight: normal; font-size: 14pt;"  for="standard">Standard</label> 
 				
-				<input style="margin-left: 20px;" class="form-check-input" type="radio" id="large" name="bannerHeight" value="large">
+				<input style="margin-left: 20px;" class="form-check-input" type="radio" id="large" name="bannerHeight" value="large" onclick="generateBanner()">
 				<label class="form-check-label" style="font-weight: normal; font-size: 14pt;"  for="large">Large</label> 
 			</div>
 		</div>
@@ -98,13 +98,13 @@ font-size: 16pt;
 		<label class="col-sm-2" for="bannerLength">Banner Width:</label>
 			<div class="col-sm-10">
 				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="radio" id="small" name="bannerWidth" value="30%" required>
+					<input class="form-check-input" type="radio" id="small" name="bannerWidth" value="30%" onclick="generateBanner()" required>
 					<label class="form-check-label" style="font-weight: normal; font-size: 14pt;" for="small">Small</label>
 					
-					<input style="margin-left: 10px;" class="form-check-input" type="radio" id="medium" checked="checked" name="bannerWidth" value="60%">
+					<input style="margin-left: 10px;" class="form-check-input" type="radio" id="medium" checked="checked" name="bannerWidth" value="60%" onclick="generateBanner()">
 					<label class="form-check-label" style="font-weight: normal; font-size: 14pt;"  for="medium">Medium</label>
 					
-					<input style="margin-left: 10px;" class="form-check-input" type="radio" id="long" name="bannerWidth" value="80%">
+					<input style="margin-left: 10px;" class="form-check-input" type="radio" id="long" name="bannerWidth" value="80%" onclick="generateBanner()">
 					<label class="form-check-label" style="font-weight: normal; font-size: 14pt;" for="long">Long</label> 
 				
 				</div>
@@ -121,9 +121,9 @@ font-size: 16pt;
 		<label class="col-sm-2" for="bannerStyle">End Capping:</label>
 			<div class="col-sm-10">
 				<div class="form-check form-check-inline">
-					<input type="radio" id="roundedEnd" name="bannerCap" value="roundedEnd" required>
+					<input type="radio" id="roundedEnd" name="bannerCap" value="roundedEnd" checked="checked" onclick="generateBanner()" required>
 					<img style="margin-left: 5px;" src="roundCap.png">
-					<input style="margin-left: 10px;"  type="radio" id="squareEnd" name="bannerCap" value="squareEnd">
+					<input style="margin-left: 10px;"  type="radio" id="squareEnd" name="bannerCap" onclick="generateBanner()" value="squareEnd">
 					<img style="margin-left: 5px;" src="squareCap.png" >
 				</div>
 			</div>
@@ -149,7 +149,7 @@ font-size: 16pt;
 <h2>Banner Preview</h2>
 
 <div id="example">
-
+ <div style="display: flex; align-items: center; color: white; font-size: 20px; width:60%; height: 60px; border-radius: 75px 0px 0px 75px; background: #FF5447; padding-left: 25px;font-family:lato; font-weight: 900; letter-spacing: .8px"> <i class="fa fa-icicles fa-2x " style="color:white;  margin-right: 10px; "></i>Sample Heading</div>
 </div>
 <br /><br /><br />
 
@@ -160,12 +160,14 @@ font-size: 16pt;
 
 <h2>Generated Code</h2>
 <p>Copy and paste into a label, or other HTML block</p>
-<textarea type="text" onClick="this.setSelectionRange(0, this.value.length)" id="moodleBannerCode" rows="10" cols="140"></textarea>
+<textarea type="text" onClick="this.setSelectionRange(0, this.value.length)" id="moodleBannerCode" rows="10" cols="140">
+<script src="https://kit.fontawesome.com/6aeb437c07.js" crossorigin="anonymous"></script>
+ <div style="display: flex; align-items: center; color: white; font-size: 20px; width:60%; height: 60px; border-radius: 75px 0px 0px 75px; background: #FF5447; padding-left: 25px;font-family:lato; font-weight: 900; letter-spacing: .8px"> <i class="fa fa-icicles fa-2x " style="color:white;  margin-right: 10px; "></i>Sample Heading</div>
+</textarea>
 
 </div>
 
 <script>
-
 
 
 function generateBanner (){
