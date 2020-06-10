@@ -3,13 +3,12 @@
 <head>
 <script src="https://kit.fontawesome.com/6aeb437c07.js" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+<script src="jscolor-2.0.7/jscolor.js"></script>
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
-
 <link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
 
-<script src="jscolor-2.0.7/jscolor.js"></script>
-<script src="fontawesome-iconpicker-3.0.0/dist/js/fontawesome-iconpicker.js"></script>
-<link rel="stylesheet" type="text/css" href="fontawesome-iconpicker-3.0.0/dist/css/fontawesome-iconpicker.css">
+
+
 
 <title>Moodle Banner Maker v1.0</title>
 
@@ -17,7 +16,8 @@
 
 label {
 font-weight: bold;
-font-size: 18pt;
+font-size: 16pt;
+
 }
 
 </style>
@@ -28,78 +28,107 @@ font-size: 18pt;
 <body>
 <div class="container" style="text-align: left">
 <h2>Welcome to the Moodle Banner Maker</h2>
-<em>Version 1.0</em>
+<em>Version 1.1</em>
 
 <hr />
 
 
 <form action="javascript:;" onsubmit="return generateBanner();">
 
+	<div class="form-group row">
+		<label class="col-sm-2" for="headerText">Header Text:</label>
+		<div class="col-sm-10">
+			<input type="text" id="headerText" size="40" required >
+		</div>
+	</div>
 
-	<label for="headerText">Banner Text:</label>
-	<input type="text" id="headerText" required >
-	<br />
-	<label for="jscolor">Banner Background Colour:</label>
-	<input id="jscolor" class="jscolor">
-	<br />
-	
-	<label for="headerTextColour">Banner Text Colour:</label><br />
-	<input type="radio" id="whiteColour" name="textColour" value="white" required>
-	<label style="font-weight: normal; font-size: 14pt" for="whiteColour">White</label>
+	 <div class="form-group row">
+		<label class="col-sm-2" for="jscolor">Banner Colour:</label>
+		<div class="col-sm-10">
+			<input id="jscolor" class="jscolor">
+		</div>
+	</div>	
 
-	<input style="margin-left: 40px;" type="radio" id="blackColour" name="textColour" value="black" required>
-	<label style="font-weight: normal; font-size: 14pt" for="blackColour">Black</label>
-	
-
-	<br />
-	
-	<label for="selectedFAIcon">Font Awesome Icon:</label>
-	<input type="text" id="selectedFAIcon" required >
-	<pre>note: use <a href="https://fontawesome.com/cheatsheet" target="_new">Font Awesome Cheat Sheet</a> to find the icons text name. eg. ambulance</pre>
-
-	<br />
-	
-	
-	<div class="row">
-	
-		<div class="col-3">
+	<div class="form-group row">
+		<label class="col-sm-2" for="headerTextColour">Text Colour:</label>
 		
-			<label for="bannerSize">Banner Height:</label><br />
-			<input type="radio" id="short" name="bannerHeight" value="short" required>
-			<label style="font-weight: normal; font-size: 14pt" for="short">Short</label><br /> 
-			<input type="radio" id="standard" checked="checked" name="bannerHeight" value="standard">
-			<label style="font-weight: normal; font-size: 14pt"  for="standard">Standard</label> <br />
-			<input type="radio" id="large" name="bannerHeight" value="large">
-			<label style="font-weight: normal; font-size: 14pt"  for="large">Large</label> 
-			
+		<div class="col-sm-10">
+			<input type="radio" id="whiteColour" name="textColour" value="white" required>
+			<label style="font-weight: normal; font-size: 14pt" for="whiteColour">White</label>
 		
+		
+		
+			<input  style="margin-left: 20px;" type="radio" id="blackColour" name="textColour" value="black" required>
+			<label style="font-weight: normal; font-size: 14pt" for="blackColour">Black</label>
+		</div>
+	</div>
+
+	<div class="form-group row">
+	
+		<label class="col-sm-2" for="selectedFAIcon">Banner Icon:</label>
+		<div class="col-sm-10">
+			<input type="text" id="selectedFAIcon" required >
+			<pre>note: use <a href="https://fontawesome.com/cheatsheet" target="_new">Font Awesome Cheat Sheet</a> to find the icons text name. eg. ambulance</pre>
+		</div>
+	</div>	
+
+
+	<div class="form-group row">
+		<label class="col-sm-2" for="bannerSize">Banner Height:</label>
+	
+		<div class="col-sm-10">
+			<div class="form-check form-check-inline">
+				<input class="form-check-input" type="radio" id="short" name="bannerHeight" value="short" required>
+				<label class="form-check-label" style="font-weight: normal; font-size: 14pt;" for="short">Short</label>
+				
+				<input style="margin-left: 20px;" class="form-check-input" type="radio" id="standard" checked="checked" name="bannerHeight" value="standard">
+				<label class="form-check-label" style="font-weight: normal; font-size: 14pt;"  for="standard">Standard</label> 
+				
+				<input style="margin-left: 20px;" class="form-check-input" type="radio" id="large" name="bannerHeight" value="large">
+				<label class="form-check-label" style="font-weight: normal; font-size: 14pt;"  for="large">Large</label> 
+			</div>
 		</div>
 		
-		<div class="col-3">
-  
-			<label for="bannerLength">Banner Width:</label><br />
-			<input type="radio" id="small" name="bannerWidth" value="30%" required>
-			<label style="font-weight: normal; font-size: 14pt" for="small">Small</label><br /> 
-			<input type="radio" id="medium" checked="checked" name="bannerWidth" value="60%">
-			<label style="font-weight: normal; font-size: 14pt"  for="medium">Medium</label> <br />
-			<input type="radio" id="long" name="bannerWidth" value="80%">
-			<label style="font-weight: normal; font-size: 14pt"  for="long">Long</label> 
-			<br />
-		</div>
-	
+	</div>
+		
+
+		
+		
+	<div class="form-group row">
+		<label class="col-sm-2" for="bannerLength">Banner Width:</label>
+			<div class="col-sm-10">
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="radio" id="small" name="bannerWidth" value="30%" required>
+					<label class="form-check-label" style="font-weight: normal; font-size: 14pt;" for="small">Small</label>
+					
+					<input style="margin-left: 10px;" class="form-check-input" type="radio" id="medium" checked="checked" name="bannerWidth" value="60%">
+					<label class="form-check-label" style="font-weight: normal; font-size: 14pt;"  for="medium">Medium</label>
+					
+					<input style="margin-left: 10px;" class="form-check-input" type="radio" id="long" name="bannerWidth" value="80%">
+					<label class="form-check-label" style="font-weight: normal; font-size: 14pt;" for="long">Long</label> 
+				
+				</div>
+			</div>
 	</div>
 	
-	<!-- investigate this styling eventually http://jsfiddle.net/La8wQ/313/ from https://stackoverflow.com/questions/17541614/use-images-instead-of-radio-buttons -->
-	<br />
-	<label for="bannerStyle">Banner End Capping:</label><br />
-	<input type="radio" id="roundedEnd" name="bannerCap" value="roundedEnd" required>
-	<img src="roundCap.png">
-	<input style="margin-left: 30px;" type="radio" id="squareEnd" name="bannerCap" value="squareEnd">
-	<img src="squareCap.png" >
-	<br />
 
-  
-	<br />
+	
+	<!-- investigate this styling eventually http://jsfiddle.net/La8wQ/313/ from https://stackoverflow.com/questions/17541614/use-images-instead-of-radio-buttons -->
+	
+	<div class="form-group row">
+	
+	
+		<label class="col-sm-2" for="bannerStyle">End Capping:</label>
+			<div class="col-sm-10">
+				<div class="form-check form-check-inline">
+					<input type="radio" id="roundedEnd" name="bannerCap" value="roundedEnd" required>
+					<img style="margin-left: 5px;" src="roundCap.png">
+					<input style="margin-left: 10px;"  type="radio" id="squareEnd" name="bannerCap" value="squareEnd">
+					<img style="margin-left: 5px;" src="squareCap.png" >
+				</div>
+			</div>
+	
+	</div>
 	<input type="submit"  value="Preview Banner &amp; Generate Code">
 
 
@@ -117,7 +146,7 @@ font-size: 18pt;
 
 
 <hr />
-<p>Your banner will look like:</p>
+<h2>Banner Preview</h2>
 
 <div id="example">
 
@@ -131,9 +160,7 @@ font-size: 18pt;
 
 <h2>Generated Code</h2>
 <p>Copy and paste into a label, or other HTML block</p>
-<textarea onClick="this.setSelectionRange(0, this.value.length)" id="moodleBannerCode" rows="10" cols="140">
-  
-  </textarea>
+<textarea type="text" onClick="this.setSelectionRange(0, this.value.length)" id="moodleBannerCode" rows="10" cols="140"></textarea>
 
 </div>
 
