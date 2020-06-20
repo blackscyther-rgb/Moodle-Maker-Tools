@@ -1,16 +1,26 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+
+<meta charset="utf-8">
+<title>Moodle Banner Maker v1.0</title>
+
 <script src="https://kit.fontawesome.com/6aeb437c07.js" crossorigin="anonymous"></script>
+
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
-<script src="jscolor-2.0.7/jscolor.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
+<script src="fontawesome-iconpicker.js"></script>
+<script src="jscolor.js"></script>
+
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
+<link href="fontawesome-iconpicker.css" rel="stylesheet">
 
 
 
 
-<title>Moodle Banner Maker v1.0</title>
 
 <style>
 
@@ -20,6 +30,8 @@ font-size: 16pt;
 
 }
 
+
+
 </style>
 
 </head>
@@ -28,10 +40,17 @@ font-size: 16pt;
 <body>
 <div class="container" style="text-align: left">
 <h2>Welcome to the Moodle Banner Maker</h2>
-<em>Version 1.1</em>
+<em>Version 1.2</em>
 
 <hr />
+<h4>Basic instructions</h4>
+<ol>
+<li>Start filling in the relevant fields - they will update the preview dynamically</li>
+<li>Using the 'code view', copy the generated HTML code at the bottom into a Moodle Label or Page</li>
+</ol>
 
+
+<hr />
 
 <form action="javascript:;" onsubmit="return generateBanner();">
 
@@ -63,14 +82,35 @@ font-size: 16pt;
 		</div>
 	</div>
 
+		
+	
+	
+	
 	<div class="form-group row">
 	
 		<label class="col-sm-2" for="selectedFAIcon">Banner Icon:</label>
 		<div class="col-sm-10">
-			<input type="text" id="selectedFAIcon" value="icicles" onblur="generateBanner()" required >
-			<pre>note: use <a href="https://fontawesome.com/cheatsheet" target="_new">Font Awesome Cheat Sheet</a> to find the icons text name. eg. ambulance</pre>
+			
+			<div class="btn-group">
+				<input type="hidden" id="selectedFAIcon" value="icicles" onblur="generateBanner()" required >
+				
+				
+				<button type="button" class="btn btn-primary iconpicker-component"><i
+										class="fa fa-fw fa-icicles"></i></button>
+										
+				<button type="button" class="icp icp-dd btn btn-primary dropdown-toggle"
+						data-selected="fa-car" data-toggle="dropdown">
+					<span class="caret"></span>
+					<span class="sr-only">Toggle Dropdown</span>
+				</button>
+				<div class="dropdown-menu"></div>
+			
+			</div>
+			
 		</div>
 	</div>	
+	
+	
 
 
 	<div class="form-group row">
@@ -156,7 +196,40 @@ font-size: 16pt;
 
 </div>
 
+
+
+
+
+
+
+
+
+
 <script>
+
+$(function () {
+        $(document).on('click', '.iconpicker-item', function (e) {
+            e.preventDefault();
+        });
+        $('.icp-dd').iconpicker({
+            //title: 'Dropdown with picker',
+            //component:'.btn > i'
+        });
+
+
+        // Events sample:
+        // This event is only triggered when the actual input value is changed
+        // by user interaction
+        $('.icp').on('iconpickerSelected', function (e) {
+		// console.log(e.iconpickerValue);
+            $('#selectedFAIcon').get(0).value = e.iconpickerValue;
+        generateBanner();
+		});
+});
+
+
+
+
 
 
 function generateBanner (){
@@ -221,7 +294,7 @@ function generateBanner (){
 
  document.getElementById("example").innerHTML = "<script src=\"https:\/\/kit.fontawesome.com\/6aeb437c07.js\" crossorigin=\"anonymous\"><\/script>\r\n<div style=\"display: flex; align-items: center; color: "+customHeaderTextColour+"; font-size:"+customBannerFontSize+"; width: "+customHeaderWidth+"; height: "+customBannerHeight+"; border-radius: "+capValue+"; background: #"+customHeaderColour+"; padding-left:"+leftPadding+";font-family:lato; font-weight: 900; letter-spacing: .8px\">\r\n <i class=\"fa fa-"+customHeaderIcon+" fa-2x \" style=\"color:"+customHeaderTextColour+";  margin-right: 10px; \"><\/i>"+customHeaderText+"\r\n<\/div>";
 
- 
+  
  
 
 
