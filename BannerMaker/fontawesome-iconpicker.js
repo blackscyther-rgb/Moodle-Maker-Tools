@@ -1072,7 +1072,7 @@
         icons: 
 		
 		[
-  {
+    {
     "title": "fab fa-500px",
     "searchTerms": []
   },

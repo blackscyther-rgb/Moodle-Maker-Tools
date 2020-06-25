@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<title>Moodle Banner Maker v1.3</title>
+
+	<script src="https://kit.fontawesome.com/6aeb437c07.js" crossorigin="anonymous"></script>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+		crossorigin="anonymous"></script>
+	<script src="fontawesome-iconpicker.js"></script>
+	<script src="jscolor.js"></script>
+
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
+	<link href="fontawesome-iconpicker.css" rel="stylesheet">
+
+
+
+
+
+	<style>
+		label {
+			font-weight: bold;
+			font-size: 16pt;
+
+		}
+
+		.cc-selector input {
+			margin: 0;
+			padding: 0;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+		}
+
+		
+		.cc-selector-2 input {
+			position: absolute;
+			z-index: 999;
+		}
+
+
+		.visa {
+			background-image: url(roundCap.png);
+		}
+
+		.mastercard {
+			background-image: url(squareCap.png);
+		}
+
+		.cc-selector-2 input:active+.drinkcard-cc,
+		.cc-selector input:active+.drinkcard-cc {
+			opacity: .9;
+		}
+
+		.cc-selector-2 input:checked+.drinkcard-cc,
+		.cc-selector input:checked+.drinkcard-cc {
+			-webkit-filter: none;
+			-moz-filter: none;
+			filter: none;
+		}
+
+		.drinkcard-cc {
+			cursor: pointer;
+			background-size: contain;
+			background-repeat: no-repeat;
+			display: inline-block;
+			width: 100px;
+			height: 70px;
+			-webkit-transition: all 100ms ease-in;
+			-moz-transition: all 100ms ease-in;
+			transition: all 100ms ease-in;
+			-webkit-filter: brightness(1.8) grayscale(1) opacity(.5);
+			-moz-filter: brightness(1.8) grayscale(1) opacity(.5);
+			filter: brightness(1.8) grayscale(1) opacity(.5);
+		}
+
+		.drinkcard-cc:hover {
+			-webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+			-moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+			filter: brightness(1.2) grayscale(.5) opacity(.9);
+		}
+
+	
+	</style>
+
+</head>
+
+
+<body>
+	<div class="container" style="text-align: left">
+		<h2>Welcome to the Moodle Banner Maker</h2>
+		<em>Version 1.3</em>
+
+		<hr />
+		<h4>Basic instructions</h4>
+		<ol>
+			<li>Start filling in the relevant fields - they will update the preview dynamically</li>
+			<li>To change the icon, click the arrow next to the picture; you can search by keyword, and then 'click' to
+				select the icon you wish to use</li>
+			<li>Using the 'code view', copy the generated HTML code at the bottom into a Moodle Label or Page</li>
+		</ol>
+
+
+		<hr />
+
+		<form action="javascript:;" >
+
+			<div class="form-group row">
+				<label class="col-sm-2" for="headerText">Banner Text:</label>
+				<div class="col-sm-10">
+					<input type="text" id="headerText" size="40" value="Sample Heading" onblur="generateBanner()">
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label class="col-sm-2" for="jscolor">Banner Colour:</label>
+				<div class="col-sm-10">
+					<input id="jscolor" value="FF5447" onblur="generateBanner()" onchange="generateBanner()"
+						class="jscolor">
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label class="col-sm-2" for="headerTextColour">Text Colour:</label>
+
+				<div class="col-sm-10">
+					<input type="radio" id="whiteColour" name="textColour" value="white" checked="checked">
+					<label style="font-weight: normal; font-size: 14pt" for="whiteColour">White</label>
+
+
+
+					<input style="margin-left: 20px;" type="radio" id="blackColour" name="textColour" value="black">
+					<label style="font-weight: normal; font-size: 14pt" for="blackColour">Black</label>
+				</div>
+			</div>
+
+
+
+
+
+			<div class="form-group row">
+
+				<label class="col-sm-2" for="selectedFAIcon">Banner Icon:</label>
+				<div class="col-sm-10">
+
+					<input type="radio" id="customIcon" name="iconOrNoIcon" value="fontAwesome" checked="checked">
+
+
+					<div class="btn-group">
+						<input type="hidden" id="selectedFAIcon" value="">
+
+
+						<button type="button" class="btn btn-primary iconpicker-component"><i
+								class="fa fa-fw fa-icicles"></i></button>
+
+						<button type="button" class="icp icp-dd btn btn-primary dropdown-toggle" data-selected="fa-car"
+							data-toggle="dropdown">
+							<span class="caret"></span>
+							<span class="sr-only">Toggle Dropdown</span>
+						</button>
+						<div class="dropdown-menu"></div>
+
+					</div>
+
+					<input style="margin-left: 20px;" type="radio" id="noIcon" name="iconOrNoIcon" value="noIcon">
+					<label style="font-weight: normal; font-size: 14pt" for="noIcon">No Icon</label>
+
+
+				</div>
+			</div>
+
+
+
+
+			<div class="form-group row">
+				<label class="col-sm-2" for="bannerSize">Banner Height:</label>
+
+				<div class="col-sm-10">
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" id="short" name="bannerHeight" value="short">
+						<label class="form-check-label" style="font-weight: normal; font-size: 14pt;"
+							for="short">Short</label>
+
+						<input style="margin-left: 20px;" class="form-check-input" type="radio" id="standard"
+							checked="checked" name="bannerHeight" value="standard">
+						<label class="form-check-label" style="font-weight: normal; font-size: 14pt;"
+							for="standard">Standard</label>
+
+						<input style="margin-left: 20px;" class="form-check-input" type="radio" id="large"
+							name="bannerHeight" value="large">
+						<label class="form-check-label" style="font-weight: normal; font-size: 14pt;"
+							for="large">Large</label>
+					</div>
+				</div>
+
+			</div>
+
+
+
+
+			<div class="form-group row">
+				<label class="col-sm-2" for="bannerLength">Banner Width:</label>
+				<div class="col-sm-10">
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" id="small" name="bannerWidth" value="30%">
+						<label class="form-check-label" style="font-weight: normal; font-size: 14pt;"
+							for="small">Small</label>
+
+						<input style="margin-left: 10px;" class="form-check-input" type="radio" id="medium"
+							checked="checked" name="bannerWidth" value="60%">
+						<label class="form-check-label" style="font-weight: normal; font-size: 14pt;"
+							for="medium">Medium</label>
+
+						<input style="margin-left: 10px;" class="form-check-input" type="radio" id="long"
+							name="bannerWidth" value="80%">
+						<label class="form-check-label" style="font-weight: normal; font-size: 14pt;"
+							for="long">Long</label>
+
+					</div>
+				</div>
+			</div>
+
+
+
+			<!-- Adapted styling from http://jsfiddle.net/La8wQ/313/ as mentioned at https://stackoverflow.com/questions/17541614/use-images-instead-of-radio-buttons -->
+
+			<div class="form-group row">
+
+				<label class="col-sm-2" for="bannerStyle">End Capping:</label>
+				<div class="col-sm-10">
+					<div class="form-check form-check-inline cc-selector-2">
+						<input style="visibility: hidden;" type="radio" id="roundedEnd" name="bannerCap" value="roundedEnd" checked="checked">
+						<label class="drinkcard-cc visa" for="roundedEnd"></label>
+						<input style="visibility: hidden;" type="radio" id="squareEnd" name="bannerCap" value="squareEnd">
+						<label class="drinkcard-cc mastercard" for="squareEnd"></label>
+
+					</div>
+				</div>
+
+			</div>
+
+		</form>
+
+
+
+		<hr />
+		<h2>Banner Preview</h2>
+
+		<div id="example">
+			<div
+				style="display: flex; align-items: center; color: white; font-size: 20px; width:60%; height: 60px; border-radius: 75px 0px 0px 75px; background: #FF5447; padding-left: 25px;font-family:lato; font-weight: 900; letter-spacing: .8px">
+				<i class="fa fa-icicles fa-2x " style="color:white;  margin-right: 10px; "></i>Sample Heading</div>
+		</div>
+		<br /><br /><br />
+
+
+		<hr />
+
+
+
+		<h2>Generated Code</h2>
+		<p>Copy and paste into a label, or other HTML block</p>
+		<textarea type="text" onClick="this.setSelectionRange(0, this.value.length)" id="moodleBannerCode" rows="10"
+			cols="140">
+<script src="https://kit.fontawesome.com/6aeb437c07.js" crossorigin="anonymous"></script>
+ <div style="display: flex; align-items: center; color: white; font-size: 20px; width:60%; height: 60px; border-radius: 75px 0px 0px 75px; background: #FF5447; padding-left: 25px;font-family:lato; font-weight: 900; letter-spacing: .8px"> <i class="fa fa-icicles fa-2x " style="color:white;  margin-right: 10px; "></i>Sample Heading</div>
+</textarea>
+
+	</div>
+
+	<script>
+
+
+		$(function () {
+			// write the default values to the var, so that things dont go weird as values are changed...
+			$('#selectedFAIcon').get(0).value = " class=\"" + "fas fa-icicles" + " fa-2x \" ";
+
+			$(document).on('click', '.iconpicker-item', function (e) {
+				e.preventDefault();
+			});
+			$('.icp-dd').iconpicker({
+			});
+
+
+			// Events sample:
+			// This event is only triggered when the actual input value is changed
+			// by user interaction
+
+
+
+			$('.icp').on('iconpickerSelected', function (e) {
+				$('#selectedFAIcon').get(0).value = " class=\"" + e.iconpickerValue + " fa-2x \" ";
+				generateBanner();
+			});
+
+
+			$("input[name='iconOrNoIcon']").change(function () {
+				generateBanner();
+			});
+
+			$("input[name='textColour']").change(function () {
+				generateBanner();
+			});
+
+			$("input[name='bannerHeight']").change(function () {
+				generateBanner();
+			});
+
+			$("input[name='bannerWidth']").change(function () {
+				generateBanner();
+			});
+
+			$("input[name='bannerCap']").change(function () {
+				generateBanner();
+			});
+
+		});
+
+
+		function generateBanner() {
+
+			var textAreaSelect = document.getElementById('moodleBannerCode');
+			var customHeaderText = document.getElementById('headerText').value;
+			var customHeaderColour = document.getElementById('jscolor').value;
+			var customHeaderTextColour = $("input[name=textColour]:checked").val();
+
+			if ($("input[name=iconOrNoIcon]:checked").val() == 'fontAwesome') {
+				var customHeaderIcon = document.getElementById('selectedFAIcon').value;
+			}
+			else {
+				var customHeaderIcon = "";
+			}
+
+
+
+			var leftPadding; //CSS Value
+			var customBannerFontSize; //CSS Value
+			var customBannerHeight; //CSS Value
+			var customHeaderHeight = $("input[name=bannerHeight]:checked").val();
+
+			switch (customHeaderHeight) {
+
+				case "short":
+					customBannerHeight = "40px";
+					customBannerFontSize = "15px";
+					leftPadding = "20px";
+					break;
+				case "standard":
+					customBannerHeight = "60px";
+					customBannerFontSize = "20px";
+					leftPadding = "25px";
+					break;
+				case "large":
+					customBannerHeight = "90px";
+					customBannerFontSize = "35px";
+					leftPadding = "30px";
+					break;
+
+			}
+
+
+			var customHeaderWidth = $("input[name=bannerWidth]:checked").val();
+
+			var capValue; //CSS Value
+			var customHeaderCapping = $("input[name=bannerCap]:checked").val();
+
+			switch (customHeaderCapping) {
+
+				case "roundedEnd":
+					capValue = "75px 0px 0px 75px";
+
+					break;
+				case "squareEnd":
+					capValue = "0px 0px 0px 0px";
+
+					break;
+
+			}
+
+
+			textAreaSelect.value = "<script src=\"https:\/\/kit.fontawesome.com\/6aeb437c07.js\" crossorigin=\"anonymous\"><\/script>\r\n <div style=\"display: flex; align-items: center; color: " + customHeaderTextColour + "; font-size: " + customBannerFontSize + "; width:" + customHeaderWidth + "; height: " + customBannerHeight + "; border-radius: " + capValue + "; background: #" + customHeaderColour + "; padding-left: " + leftPadding + ";font-family:lato; font-weight: 900; letter-spacing: .8px\"> <i " + customHeaderIcon + " style=\"color:" + customHeaderTextColour + ";  margin-right: 10px; \"></i>" + " " + customHeaderText + "<\/div>";
+
+			document.getElementById("example").innerHTML = "<script src=\"https:\/\/kit.fontawesome.com\/6aeb437c07.js\" crossorigin=\"anonymous\"><\/script>\r\n<div style=\"display: flex; align-items: center; color: " + customHeaderTextColour + "; font-size:" + customBannerFontSize + "; width: " + customHeaderWidth + "; height: " + customBannerHeight + "; border-radius: " + capValue + "; background: #" + customHeaderColour + "; padding-left:" + leftPadding + ";font-family:lato; font-weight: 900; letter-spacing: .8px\">\r\n <i " + customHeaderIcon + " style=\"color:" + customHeaderTextColour + ";  margin-right: 10px; \"><\/i>" + " " + customHeaderText + "\r\n<\/div>";
+
+
+
+
+			// console.log("Custom Banner Loaded");
+
+		}
+
+
+	</script>
+
+</body>
+
+
+
+
+
+</html>
