@@ -4,7 +4,7 @@
 <head>
 
 	<meta charset="utf-8">
-	<title>Moodle Banner Maker v1.3</title>
+	<title>Moodle Banner Maker v1.31</title>
 
 	<script src="https://kit.fontawesome.com/6aeb437c07.js" crossorigin="anonymous"></script>
 
@@ -272,7 +272,7 @@
 		<textarea type="text" onClick="this.setSelectionRange(0, this.value.length)" id="moodleBannerCode" rows="10"
 			cols="140">
 <script src="https://kit.fontawesome.com/6aeb437c07.js" crossorigin="anonymous"></script>
- <div style="display: flex; align-items: center; color: white; font-size: 20px; width:60%; height: 60px; border-radius: 75px 0px 0px 75px; background: #FF5447; padding-left: 25px;font-family:lato; font-weight: 900; letter-spacing: .8px"> <i class="fa fa-icicles fa-2x " style="color:white;  margin-right: 10px; "></i>Sample Heading</div>
+<div style="display: flex; align-items: center; color: white; font-size: 20px; width:60%; height: 60px; border-radius: 75px 0px 0px 75px; background: #FF5447; padding-left: 25px; font-family:lato; font-weight: 900; letter-spacing: .8px"> <i class="fa fa-icicles fa-2x " style="color:white;  margin-right: 10px;"></i>Sample Heading</div>
 </textarea>
 
 	</div>
@@ -332,6 +332,18 @@
 			var customHeaderText = document.getElementById('headerText').value;
 			var customHeaderColour = document.getElementById('jscolor').value;
 			var customHeaderTextColour = $("input[name=textColour]:checked").val();
+			
+			
+			if ($("input[name=iconOrNoIcon]:checked").val() == 'fontAwesome') {
+				var externalFALink = "<script src=\"https:\/\/kit.fontawesome.com\/6aeb437c07.js\" crossorigin=\"anonymous\"><\/script>\r\n";
+			}
+			else {
+				var externalFALink = "";
+			}
+
+			
+
+
 
 			if ($("input[name=iconOrNoIcon]:checked").val() == 'fontAwesome') {
 				var customHeaderIcon = document.getElementById('selectedFAIcon').value;
@@ -387,9 +399,9 @@
 			}
 
 
-			textAreaSelect.value = "<script src=\"https:\/\/kit.fontawesome.com\/6aeb437c07.js\" crossorigin=\"anonymous\"><\/script>\r\n <div style=\"display: flex; align-items: center; color: " + customHeaderTextColour + "; font-size: " + customBannerFontSize + "; width:" + customHeaderWidth + "; height: " + customBannerHeight + "; border-radius: " + capValue + "; background: #" + customHeaderColour + "; padding-left: " + leftPadding + ";font-family:lato; font-weight: 900; letter-spacing: .8px\"> <i " + customHeaderIcon + " style=\"color:" + customHeaderTextColour + ";  margin-right: 10px; \"></i>" + " " + customHeaderText + "<\/div>";
+			textAreaSelect.value = externalFALink +"<div style=\"display: flex; align-items: center; color: " + customHeaderTextColour + "; font-size: " + customBannerFontSize + "; width:" + customHeaderWidth + "; height: " + customBannerHeight + "; border-radius: " + capValue + "; background: #" + customHeaderColour + "; padding-left: " + leftPadding + "; font-family:lato; font-weight: 900; letter-spacing: .8px\"> <i " + customHeaderIcon + "style=\"color:" + customHeaderTextColour + ";  margin-right: 10px;\"></i>" + customHeaderText + "<\/div>";
 
-			document.getElementById("example").innerHTML = "<script src=\"https:\/\/kit.fontawesome.com\/6aeb437c07.js\" crossorigin=\"anonymous\"><\/script>\r\n<div style=\"display: flex; align-items: center; color: " + customHeaderTextColour + "; font-size:" + customBannerFontSize + "; width: " + customHeaderWidth + "; height: " + customBannerHeight + "; border-radius: " + capValue + "; background: #" + customHeaderColour + "; padding-left:" + leftPadding + ";font-family:lato; font-weight: 900; letter-spacing: .8px\">\r\n <i " + customHeaderIcon + " style=\"color:" + customHeaderTextColour + ";  margin-right: 10px; \"><\/i>" + " " + customHeaderText + "\r\n<\/div>";
+			document.getElementById("example").innerHTML = externalFALink +"<div style=\"display: flex; align-items: center; color: " + customHeaderTextColour + "; font-size:" + customBannerFontSize + "; width: " + customHeaderWidth + "; height: " + customBannerHeight + "; border-radius: " + capValue + "; background: #" + customHeaderColour + "; padding-left:" + leftPadding + "; font-family:lato; font-weight: 900; letter-spacing: .8px\">\r\n <i " + customHeaderIcon +"style=\"color:" + customHeaderTextColour +";  margin-right: 10px;\"><\/i>" + customHeaderText + "\r\n<\/div>";
 
 
 
