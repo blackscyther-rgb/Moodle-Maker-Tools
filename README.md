@@ -9,4 +9,7 @@ Example: https://column80.com/moodletools/banner/
 
 
 Credits:
-This tool uses the 'jscolor' library (https://jscolor.com/) as well as the FontAwesome IconPicker (https://github.com/itsjavi/fontawesome-iconpicker) to incorporate more easily Font Awesome icons. 
+This tool uses:
+- The 'jscolor' library (https://jscolor.com/) 
+- The FontAwesome IconPicker (https://github.com/itsjavi/fontawesome-iconpicker) to incorporate more easily Font Awesome icons. 
+- The CSS 'selector' code for choosing the capping with an image instead of radio buttons (https://jsfiddle.net/teocci/Lnt9quLu/).
