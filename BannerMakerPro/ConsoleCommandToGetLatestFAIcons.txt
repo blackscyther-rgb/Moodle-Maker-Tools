@@ -1,0 +1,10 @@
+request = await fetch("https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/metadata/icons.json")
+fonts = await request.json()
+newTerms = []
+for ([key, value] of Object.entries(fonts)) {
+    for (style of value.free) {
+        newTerms.push({title: `fa${style.charAt(0)} fa-${key}`, searchTerms: value.search && value.search.terms})
+    }
+}
+console.log("Contains keys", newTerms.length)
+JSON.stringify(newTerms, null, " ")

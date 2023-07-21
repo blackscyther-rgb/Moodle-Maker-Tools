@@ -4,7 +4,7 @@
 <head>
 
 	<meta charset="utf-8">
-	<title>Moodle Banner Maker v1.4</title>
+	<title>Moodle Banner Maker Pro v1.00</title>
 
 	<script src="https://kit.fontawesome.com/6aeb437c07.js" crossorigin="anonymous"></script>
 
@@ -23,9 +23,6 @@
 	<link href="fontawesome-iconpicker.css" rel="stylesheet">
 
 
-
-
-
 	<style>
 		label {
 			font-weight: bold;
@@ -41,7 +38,7 @@
 			appearance: none;
 		}
 
-		
+
 		.cc-selector-2 input {
 			position: absolute;
 			z-index: 999;
@@ -89,7 +86,8 @@
 			filter: brightness(1.2) grayscale(.5) opacity(.9);
 		}
 
-	
+
+
 	</style>
 
 </head>
@@ -97,9 +95,9 @@
 
 <body>
 	<div class="container" style="text-align: left">
-		<h2>Welcome to the Moodle Banner Maker</h2>
-		<em>Version 1.4</em>
-
+		<h2>Welcome to the Moodle Banner Maker Pro</h2>
+		<em>Version 1.0</em>
+		
 		<hr />
 		<h4>Basic instructions</h4>
 		<ol>
@@ -114,18 +112,9 @@
 
 		<form action="javascript:;" >
 
-			<div class="form-group row">
-				<label class="col-sm-2" for="bannerType">I am using this:</label>
 
-				<div class="col-sm-10">
-					<input type="radio" id="standAloneNav" name="typeOfBanner" value="standAlone" checked="checked">
-					<label style="font-weight: normal; font-size: 14pt" for="standAloneNav">Stand Alone</label>
-					
-					<input style="margin-left: 20px;" type="radio" id="customMoodleNav" name="typeOfBanner" value="customNav">
-					<label style="font-weight: normal; font-size: 14pt" for="customMoodleNav">With Customised Navigation</label>
-				</div>
-			</div>
-
+			<h3>Aesthetics</h3>
+			<br />
 
 			<div class="form-group row">
 				<label class="col-sm-2" for="headerText">Banner Text:</label>
@@ -141,24 +130,6 @@
 						class="jscolor">
 				</div>
 			</div>
-
-			<div class="form-group row">
-				<label class="col-sm-2" for="headerTextColour">Text Colour:</label>
-
-				<div class="col-sm-10">
-					<input type="radio" id="whiteColour" name="textColour" value="white" checked="checked">
-					<label style="font-weight: normal; font-size: 14pt" for="whiteColour">White</label>
-
-
-
-					<input style="margin-left: 20px;" type="radio" id="blackColour" name="textColour" value="black">
-					<label style="font-weight: normal; font-size: 14pt" for="blackColour">Black</label>
-				</div>
-			</div>
-
-
-
-
 
 			<div class="form-group row">
 
@@ -191,59 +162,6 @@
 				</div>
 			</div>
 
-
-
-
-			<div class="form-group row">
-				<label class="col-sm-2" for="bannerSize">Banner Height:</label>
-
-				<div class="col-sm-10">
-					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="radio" id="short" name="bannerHeight" value="short">
-						<label class="form-check-label" style="font-weight: normal; font-size: 14pt;"
-							for="short">Short</label>
-
-						<input style="margin-left: 20px;" class="form-check-input" type="radio" id="standard"
-							checked="checked" name="bannerHeight" value="standard">
-						<label class="form-check-label" style="font-weight: normal; font-size: 14pt;"
-							for="standard">Standard</label>
-
-						<input style="margin-left: 20px;" class="form-check-input" type="radio" id="large"
-							name="bannerHeight" value="large">
-						<label class="form-check-label" style="font-weight: normal; font-size: 14pt;"
-							for="large">Large</label>
-					</div>
-				</div>
-
-			</div>
-
-
-
-
-			<div class="form-group row">
-				<label class="col-sm-2" for="bannerLength">Banner Width:</label>
-				<div class="col-sm-10">
-					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="radio" id="small" name="bannerWidth" value="30%">
-						<label class="form-check-label" style="font-weight: normal; font-size: 14pt;"
-							for="small">Small</label>
-
-						<input style="margin-left: 10px;" class="form-check-input" type="radio" id="medium"
-							checked="checked" name="bannerWidth" value="60%">
-						<label class="form-check-label" style="font-weight: normal; font-size: 14pt;"
-							for="medium">Medium</label>
-
-						<input style="margin-left: 10px;" class="form-check-input" type="radio" id="long"
-							name="bannerWidth" value="80%">
-						<label class="form-check-label" style="font-weight: normal; font-size: 14pt;"
-							for="long">Long</label>
-
-					</div>
-				</div>
-			</div>
-
-
-
 			<!-- Adapted styling from http://jsfiddle.net/La8wQ/313/ as mentioned at https://stackoverflow.com/questions/17541614/use-images-instead-of-radio-buttons -->
 
 			<div class="form-group row">
@@ -260,6 +178,85 @@
 				</div>
 
 			</div>
+
+			<hr style="margin-left:0; width: 500px;" />
+
+			<h3>Text settings</h3>
+			<br />
+			<div class="form-group row">
+				<label class="col-sm-2" for="headerTextColour">Colour:</label>
+
+				<div class="col-sm-10">
+					<input type="radio" id="whiteColour" name="textColour" value="white" checked="checked">
+					<label style="font-weight: normal; font-size: 14pt" for="whiteColour">White</label>
+
+
+
+					<input style="margin-left: 20px;" type="radio" id="blackColour" name="textColour" value="black">
+					<label style="font-weight: normal; font-size: 14pt" for="blackColour">Black</label>
+				</div>
+			</div>
+
+
+			<div style="margin-top: -20px;" class="form-group row">
+				<label class="col-sm-2" for="textSize">Size (px):</label>
+				<div class="col-sm-10">
+					<input type="text" id="textSize" size="4" value="20" onblur="generateBanner()">
+				</div>
+
+				<label class="col-sm-2" for="letterSpacing">Spacing (px):</label>
+				<div class="col-sm-10">
+					<input type="text" id="letterSpacing" size="4" value=".8" onblur="generateBanner()">
+				</div>
+
+				<label class="col-sm-2" for="fontWeight">Weight:</label>
+				<div class="col-sm-10">
+
+					<select id="fontWeight" name="fontWeight" onblur="generateBanner()">
+				  <option value="100">Light</option>
+				  <option value="500">Normal</option>
+				  <option value="700">Bold</option>
+				</select>
+				</div>
+
+			</div>
+
+			<hr style="margin-left:0; width: 500px;" />
+
+			<h3>Dimensions</h3>
+			<br />
+
+
+
+
+
+
+			<div class="form-group row">
+				<label class="col-sm-2" for="bannerHeight">Height:</label>
+				<div class="col-sm-10">
+					<input type="text" id="bannerHeight" size="4" value=".8" onblur="generateBanner()">
+				</div>
+			</div>
+
+
+
+
+			<div class="form-group row">
+				<label class="col-sm-2" for="bannerWidth">Width:</label>
+				<div class="col-sm-10">
+					<input type="text" id="bannerWidth" size="4" value=".8" onblur="generateBanner()">
+				</div>
+			</div>
+
+			<div class="form-group row">
+			<label class="col-sm-2" for="leftMarginContent">Left Margin:</label>
+			<div class="col-sm-10">
+				<input type="text" id="leftMarginContent" size="4" value=".8" onblur="generateBanner()">
+			</div>
+		</div>
+
+
+
 
 		</form>
 
@@ -284,9 +281,9 @@
 		<p>Copy and paste into a label, or other HTML block</p>
 		<textarea type="text" onClick="this.setSelectionRange(0, this.value.length)" id="moodleBannerCode" rows="10"
 			cols="140">
-<script src="https://kit.fontawesome.com/6aeb437c07.js" crossorigin="anonymous"></script>
-<div style="display: flex; align-items: center; color: white; font-size: 20px; width:60%; height: 60px; border-radius: 75px 0px 0px 75px; background: #FF5447; padding-left: 25px; font-family:lato; font-weight: 900; letter-spacing: .8px"> <i class="fa fa-icicles fa-2x " style="color:white;  margin-right: 10px;"></i>Sample Heading</div>
-</textarea>
+		<script src="https://kit.fontawesome.com/6aeb437c07.js" crossorigin="anonymous"></script>
+		<div style="display: flex; align-items: center; color: white; font-size: 20px; width:60%; height: 60px; border-radius: 75px 0px 0px 75px; background: #FF5447; padding-left: 25px; font-family:lato; font-weight: 900; letter-spacing: .8px"> <i class="fa fa-icicles fa-2x " style="color:white;  margin-right: 10px;"></i>Sample Heading</div>
+		</textarea>
 
 	</div>
 
@@ -342,18 +339,24 @@
 		function generateBanner() {
 
 			var textAreaSelect = document.getElementById('moodleBannerCode');
+
 			var customHeaderText = document.getElementById('headerText').value;
 			var customHeaderColour = document.getElementById('jscolor').value;
-			var customHeaderTextColour = $("input[name=textColour]:checked").val();
-			
-			
+
+
+
+
+
 			if ($("input[name=iconOrNoIcon]:checked").val() == 'fontAwesome') {
 				var externalFALink = "<script src=\"https:\/\/kit.fontawesome.com\/6aeb437c07.js\" crossorigin=\"anonymous\"><\/script>\r\n";
 			}
-			
 			else {
 				var externalFALink = "";
 			}
+
+
+
+
 
 			if ($("input[name=iconOrNoIcon]:checked").val() == 'fontAwesome') {
 				var customHeaderIcon = document.getElementById('selectedFAIcon').value;
@@ -361,36 +364,6 @@
 			else {
 				var customHeaderIcon = "";
 			}
-
-
-
-			var leftPadding; //CSS Value
-			var customBannerFontSize; //CSS Value
-			var customBannerHeight; //CSS Value
-			var customHeaderHeight = $("input[name=bannerHeight]:checked").val();
-
-			switch (customHeaderHeight) {
-
-				case "short":
-					customBannerHeight = "40px";
-					customBannerFontSize = "16px";
-					leftPadding = "20px";
-					break;
-				case "standard":
-					customBannerHeight = "60px";
-					customBannerFontSize = "20px";
-					leftPadding = "25px";
-					break;
-				case "large":
-					customBannerHeight = "90px";
-					customBannerFontSize = "35px";
-					leftPadding = "30px";
-					break;
-
-			}
-
-
-			var customHeaderWidth = $("input[name=bannerWidth]:checked").val();
 
 			var capValue; //CSS Value
 			var customHeaderCapping = $("input[name=bannerCap]:checked").val();
@@ -408,8 +381,32 @@
 
 			}
 
+			var customHeaderTextColour = $("input[name=textColour]:checked").val(); // CSS Value
+			var customFontSize = document.getElementById('textSize').value;//CSS Value
+			var customFontSpacing = document.getElementById('letterSpacing').value; // CSS Value
+			var customFontWeight = document.getElementById('fontWeight').value;// CSS Value
 
-			textAreaSelect.value = externalFALink +"<div class=\"sectionBanner\" style=\"display: flex; align-items: center; color: " + customHeaderTextColour + "; font-size: " + customBannerFontSize + "; width:" + customHeaderWidth + "; height: " + customBannerHeight + "; border-radius: " + capValue + "; background: #" + customHeaderColour + "; padding-left: " + leftPadding + "; font-family:lato; font-weight: 900; letter-spacing: .8px\"> <i " + customHeaderIcon + "style=\"color:" + customHeaderTextColour + ";  margin-right: 10px;\"></i>" + customHeaderText + "<\/div>";
+
+
+			var customBannerHeight = document.getElementById('bannerHeight').value; //CSS Value
+			var customBannerWidth = document.getElementById('bannerWidth').value; //CSS Value
+			var customleftPadding = document.getElementById('leftMarginContent').value; //CSS Value
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			textAreaSelect.value = externalFALink +"<div style=\"display: flex; align-items: center; color: " + customHeaderTextColour + "; font-size: " + customBannerFontSize + "; width:" + customHeaderWidth + "; height: " + customBannerHeight + "; border-radius: " + capValue + "; background: #" + customHeaderColour + "; padding-left: " + leftPadding + "; font-family:lato; font-weight: 900; letter-spacing: .8px\"> <i " + customHeaderIcon + "style=\"color:" + customHeaderTextColour + ";  margin-right: 10px;\"></i>" + customHeaderText + "<\/div>";
 
 			document.getElementById("example").innerHTML = externalFALink +"<div style=\"display: flex; align-items: center; color: " + customHeaderTextColour + "; font-size:" + customBannerFontSize + "; width: " + customHeaderWidth + "; height: " + customBannerHeight + "; border-radius: " + capValue + "; background: #" + customHeaderColour + "; padding-left:" + leftPadding + "; font-family:lato; font-weight: 900; letter-spacing: .8px\">\r\n <i " + customHeaderIcon +"style=\"color:" + customHeaderTextColour +";  margin-right: 10px;\"><\/i>" + customHeaderText + "\r\n<\/div>";
 

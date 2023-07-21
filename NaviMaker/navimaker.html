@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <title>Moodle Navi-Maker v1.0</title>
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+
+    <link rel=" stylesheet" href="https://fonts.googleapis.com/css?family=Lato" />
+
+    <script src="jquery-3.6.0.js" crossorigin="anonymous"></script>
+
+        
+
+    <script src="jscolor.js" crossorigin="anonymous"></script>
+   
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Lato');
+
+
+.cls-28 {
+    opacity: 0.4;
+}
+
+.cls-29 {
+    fill: #6d6e71;
+}
+
+.cls-30,
+.cls-32 {
+    font-size: 13px;
+}
+
+.cls-30,
+.cls-32,
+.cls-36,
+.cls-38,
+.cls-39 {
+    fill: #fff;
+}
+
+.cls-30,
+.cls-32,
+.cls-36 {
+    font-family: Lato-Bold, Lato;
+    font-weight: 700;
+}
+
+.cls-30 {
+    letter-spacing: -0.03em;
+}
+
+.cls-31 {
+    letter-spacing: -0.06em;
+}
+
+.cls-33 {
+    letter-spacing: -0.01em;
+}
+
+.cls-34 {
+    letter-spacing: -0.03em;
+}
+
+.cls-35 {
+    letter-spacing: -0.01em;
+}
+
+.cls-36 {
+    font-size: 15px;
+}
+
+.cls-37 {
+    letter-spacing: -0.01em;
+}
+
+.cls-39 {
+    fill-rule: evenodd;
+}
+       
+       
+       .tabDescriptor {
+            font-style: italic;
+            margin-top: 13px;
+
+        }
+
+        .importantNote {
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 20px;
+
+        }
+
+        
+    </style>
+
+
+
+
+
+
+
+</head>
+
+
+<body>
+    <div class="container" style="text-align: left">
+
+        <h2>Welcome to the Moodle Navi-Maker</h2>
+        <em>Version 1.0</em>
+
+        <hr />
+        <h4>Basic instructions</h4>
+        <p class="importantNote">Ensure you follow the pre-requisite setup guide before implementing this navigation!
+        </p>
+        <ol>
+            <li>Start filling in the relevant fields - they will update the preview dynamically</li>
+            <li>Move between the tab (sections) to change different settings</li>
+            <li>Click 'copy code', to copy the generated combined HTML+JS code to memory, and then paste it in the
+                appropriate
+                area</li>
+            <li>If you're stuck, be sure to read the guide and watch the video which gives an overview of use case, and
+                intended practice</li>
+        </ol>
+
+
+        <hr />
+        <h4>Preview</h4>
+        
+
+        <div id="navPreview" >
+
+
+        </div>
+        <br /><br />
+        <em class="importantNote">Preview not to scale; but is representative: It is fully responsive, and will change based on display size.</em>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <hr />
+
+
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="navSetting-tab" data-bs-toggle="tab"
+                    data-bs-target="#navSetting-tab-pane" type="button" role="tab" aria-controls="navSetting-tab-pane"
+                    aria-selected="true">Navigation Settings</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="colourSettings-tab" data-bs-toggle="tab"
+                    data-bs-target="#colourSettings-tab-pane" type="button" role="tab"
+                    aria-controls="colourSettings-tab-pane" aria-selected="false">Colour
+                    Settings</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="dateSettings-tab" data-bs-toggle="tab"
+                    data-bs-target="#dateSettings-tab-pane" type="button" role="tab"
+                    aria-controls="dateSettings-tab-pane" aria-selected="false">Date Settings</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="advancedSettings-tab" data-bs-toggle="tab"
+                    data-bs-target="#advancedSettings-tab-pane" type="button" role="tab"
+                    aria-controls="advancedSettings-tab-pane" aria-selected="false">Advanced Settings</button>
+            </li>
+        </ul>
+
+        <form action="javascript:;">
+
+            <div class="tab-content" id="naviMakerTabs">
+                <div class="tab-pane fade show active" id="navSetting-tab-pane" role="tabpanel"
+                    aria-labelledby="navSetting-tab" tabindex="0">
+
+                    <p class="tabDescriptor">Here you can setup the main settings of the navigation.</p>
+
+
+                    <br />
+                    <div class="form-group row">
+                        <label class="col-sm-2" for="navigationType">Navigation Layout (type):</label>
+
+                        <div class="col-sm-10">
+                            <input type="radio" id="block12week" name="naviType" value="b12w" checked="checked">
+                            <label style="font-weight: normal; font-size: 14pt" for="block12week">Block (12
+                                Week)</label>
+
+                            <input style="margin-left: 20px;" type="radio" id="donut12week" name="naviType"
+                                value="d12w">
+                            <label style="font-weight: normal; font-size: 14pt" for="donut12week">Donut (12
+                                Week)</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2" for="navigationType">Navigation Scale:</label>
+
+                        <div class="col-sm-10">
+                            <input type="radio" id="minScale" name="naviType" value="6" >
+                            <label style="font-weight: normal; font-size: 14pt" for="minScale">minmal</label>
+
+                            <input style="margin-left: 20px;" type="radio" id="stdScale" name="naviType" value="8" checked="checked">
+                            <label style="font-weight: normal; font-size: 14pt" for="stdScale">standard</label>
+
+                            <input style="margin-left: 20px;" type="radio" id="maxScale" name="naviType" value="10">
+                            <label style="font-weight: normal; font-size: 14pt" for="maxScale">maximum</label>
+                        </div>
+                    </div>
+
+
+                    <br />
+                    <div class="form-group row">
+                        <label class="col-sm-2" for="navigationStyle">Navigation style:</label>
+
+                        <div class="col-sm-10">
+                            <input type="radio" id="freeNavi" name="naviStyle" value="freeAccess" checked="checked">
+                            <label style="font-weight: normal; font-size: 14pt" for="freeNavi">Free (All Access)</label>
+
+                            <input style="margin-left: 20px;" type="radio" id="greyLock" name="naviStyle"
+                                value="lockedGrey">
+                            <label style="font-weight: normal; font-size: 14pt" for="greyLock">Locked (Grey)</label>
+
+                            <input style="margin-left: 20px;" type="radio" id="opaqLock" name="naviStyle"
+                                value="lockedOpaque">
+                            <label style="font-weight: normal; font-size: 14pt" for="opaqLock">Locked (Opaque)</label>
+                        </div>
+                    </div>
+
+                    <br />
+                    <div class="form-group row">
+                        <label class="col-sm-2" for="unitCode">Unit Code:</label>
+                        <div class="col-sm-10">
+                            <input type="text" id="unitCode" size="10" name="unitCodeVal" value="BEX1234"
+                                onblur="generateNavigation()">
+                        </div>
+                    </div>
+
+                    <br />
+                    <div class="form-group row">
+                        <label class="col-sm-2" for="moodleID">Moodle Site ID:</label>
+                        <div class="col-sm-10">
+                            <input type="text" id="moodleID" size="10" value="1920343" onblur="generateNavigation()">
+                        </div>
+                    </div>
+
+                    <br />
+                    <hr style="margin-left:0; width: 500px;" />
+                    <br />
+
+                    <p>Specify a date & time to preview the navigation from</p>
+                    <em>ie. if you want to see what the navigation will look like on Wednesday, Week 4 at 14:39</em>
+
+
+
+                </div>
+
+
+                <div class="tab-pane fade" id="colourSettings-tab-pane" role="tabpanel"
+                    aria-labelledby="colourSettings-tab" tabindex="0">
+                    <p class="tabDescriptor">Here you can change various colours used.</p>
+
+
+
+                    <div class="form-group row">
+                        <label class="col-sm-2" for="adminBlockColour">Admin Section Colour:</label>
+                        <div class="col-sm-10">
+                            <input id="adminBlockColour" value="4477FF" size="6" onblur="generateNavigation()"
+                                onchange="generateNavigation()" class="jscolor">
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group row">
+                        <label class="col-sm-2" for="adminTextColour">Admin Section Text Colour:</label>
+
+                        <div class="col-sm-10">
+                            <input type="radio" id="adminWhiteColour" name="adminTextColour" value="white"
+                                checked="checked" onchange="generateNavigation()">
+                            <label style="font-weight: normal; font-size: 14pt" for="adminWhiteColour">White</label>
+
+
+
+                            <input style="margin-left: 20px;" type="radio" id="adminBlackColour" name="adminTextColour"
+                                value="black" onchange="generateNavigation()">
+                            <label style="font-weight: normal; font-size: 14pt" for="adminBlackColour">Black</label>
+                        </div>
+                    </div>
+
+                    <br />
+                    <hr style="margin-left:0; width: 500px;" />
+                    <br />
+
+                    <div class="form-group row">
+                        <label class="col-sm-2" for="activeWeekColour">Active Week Colour:</label>
+                        <div class="col-sm-10">
+                            <input id="activeWeekColour" value="FF0000" size="6" onblur="generateNavigation()"
+                                onchange="generateNavigation()" class="jscolor">
+                        </div>
+                    </div>
+
+                    <br />
+                    <hr style="margin-left:0; width: 500px;" />
+
+                    <p class="importantNote">It is recommended that no more than 4 or 5 colours are used for the main
+                        tiles;
+                        <br />Please ensure you read the documentation around this, and consider best practice.
+                    </p>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2" for="tileTextColour">Tile Text Colour:</label>
+
+                        <div class="col-sm-10">
+                            <input type="radio" id="tileWhiteColour" name="tileTextColour" value="white"
+                                checked="checked" onchange="generateNavigation()">
+                            <label style="font-weight: normal; font-size: 14pt" for="tileWhiteColour">White</label>
+
+
+
+                            <input style="margin-left: 20px;" type="radio" id="tileBlackColour" name="tileTextColour"
+                                value="black" onchange="generateNavigation()">
+                            <label style="font-weight: normal; font-size: 14pt" for="tileBlackColour">Black</label>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group row">
+
+
+                        <table class="table">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th style="padding-left: 20px;" scope="col">Color</th>
+                                    <th class="text-center" scope="col">Week 1</th>
+                                    <th class="text-center" scope="col">Week 2</th>
+                                    <th class="text-center" scope="col">Week 3</th>
+                                    <th class="text-center" scope="col">Week 4</th>
+                                    <th class="text-center" scope="col">Week 5</th>
+                                    <th class="text-center" scope="col">Week 6</th>
+                                    <th class="text-center" scope="col">Week 7</th>
+                                    <th class="text-center" scope="col">Week 8</th>
+                                    <th class="text-center" scope="col">Week 9</th>
+                                    <th class="text-center" scope="col">Week 10</th>
+                                    <th class="text-center" scope="col">Week 11</th>
+                                    <th class="text-center" scope="col">Week 12</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <th scope="row">
+
+                                        <input id="firstTileColour" value="1155CC" size="6"
+                                            onblur="generateNavigation()" onchange="generateNavigation()"
+                                            class="jscolor">
+                                    </th>
+
+                                    <td class="text-center"><input type="radio" id="w1C1" name="tile1Colour"
+                                            checked="checked" onchange="generateNavigation()">
+                                        <label class="tile1colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w1C1"></label>
+                                    </td>
+                                    <td class="text-center"> <input type="radio" id="w2C1" name="tile2Colour"
+                                            checked="checked" onchange="generateNavigation()">
+                                        <label class="tile2colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w2C1"></label>
+                                    </td>
+                                    <td class="text-center"><input type="radio" id="w3C1" name="tile3Colour"
+                                            checked="checked" onchange="generateNavigation()">
+                                        <label class="tile3colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w3C1"></label>
+                                    </td>
+                                    <td class="text-center"><input type="radio" id="w4C1" name="tile4Colour"
+                                            checked="checked" onchange="generateNavigation()">
+                                        <label class="tile4colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w4C1"></label>
+                                    </td>
+                                    <td class="text-center"> <input type="radio" id="w5C1" name="tile5Colour"
+                                            checked="checked" onchange="generateNavigation()">
+                                        <label class="tile5colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w5C1"></label>
+                                    </td>
+                                    <td class="text-center"><input type="radio" id="w6C1" name="tile6Colour"
+                                            checked="checked" onchange="generateNavigation()">
+                                        <label class="tile6colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w6C1"></label>
+                                    </td>
+                                    <td class="text-center"><input type="radio" id="w7C1" name="tile7Colour"
+                                            checked="checked" onchange="generateNavigation()">
+                                        <label class="tile7colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w7C1"></label>
+                                    </td>
+                                    <td class="text-center"><input type="radio" id="w8C1" name="tile8Colour"
+                                            checked="checked" onchange="generateNavigation()">
+                                        <label class="tile8colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w8C1"></label>
+                                    </td>
+                                    <td class="text-center"><input type="radio" id="w9C1" name="tile9Colour"
+                                            checked="checked" onchange="generateNavigation()">
+                                        <label class="tile9colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w9C1"></label>
+                                    </td>
+                                    <td class="text-center"><input type="radio" id="w10C1" name="tile10Colour"
+                                            checked="checked" onchange="generateNavigation()">
+                                        <label class="tile10colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w10C1"></label>
+                                    </td>
+                                    <td class="text-center"><input type="radio" id="w11C1" name="tile11Colour"
+                                            checked="checked" onchange="generateNavigation()">
+                                        <label class="tile11colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w11C1"></label>
+                                    </td>
+                                    <td class="text-center"><input type="radio" id="w12C1" name="tile12Colour"
+                                            checked="checked" onchange="generateNavigation()">
+                                        <label class="tile12colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w12C1"></label>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+
+                                        <input id="secondTileColour" value="1155CC" size="6"
+                                            onblur="generateNavigation()" onchange="generateNavigation()"
+                                            class="jscolor">
+                                    </th>
+
+                                    <td class="text-center"><input type="radio" id="w1C2" name="tile1Colour" onchange="generateNavigation()">
+                                        <label class="tile1colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w1C2"></label>
+                                    </td>
+                                    <td class="text-center"> <input type="radio" id="w2C2" name="tile2Colour" onchange="generateNavigation()">
+                                        <label class="tile2colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w2C2"></label>
+                                    </td>
+                                    <td class="text-center"><input type="radio" id="w3C2" name="tile3Colour" onchange="generateNavigation()">
+                                        <label class="tile3colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w3C2"></label>
+                                    </td>
+                                    <td class="text-center"><input type="radio" id="w4C2" name="tile4Colour" onchange="generateNavigation()">
+                                        <label class="tile4colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w4C2"></label>
+                                    </td>
+                                    <td class="text-center"> <input type="radio" id="w5C2" name="tile5Colour" onchange="generateNavigation()">
+                                        <label class="tile5colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w5C2"></label>
+                                    </td>
+                                    <td class="text-center"><input type="radio" id="w6C2" name="tile6Colour" onchange="generateNavigation()">
+                                        <label class="tile6colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w6C2"></label>
+                                    </td>
+                                    <td class="text-center"><input type="radio" id="w7C2" name="tile7Colour" onchange="generateNavigation()">
+                                        <label class="tile7colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w7C2"></label>
+                                    </td>
+                                    <td class="text-center"><input type="radio" id="w8C2" name="tile8Colour" onchange="generateNavigation()">
+                                        <label class="tile8colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w8C2"></label>
+                                    </td>
+                                    <td class="text-center"><input type="radio" id="w9C2" name="tile9Colour" onchange="generateNavigation()">
+                                        <label class="tile9colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w9C2"></label>
+                                    </td>
+                                    <td class="text-center"><input type="radio" id="w10C2" name="tile10Colour" onchange="generateNavigation()">
+                                        <label class="tile10colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w10C2"></label>
+                                    </td>
+                                    <td class="text-center"><input type="radio" id="w11C2" name="tile11Colour" onchange="generateNavigation()">
+                                        <label class="tile11colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w11C2"></label>
+                                    </td>
+                                    <td class="text-center"><input type="radio" id="w12C2" name="tile12Colour" onchange="generateNavigation()">
+                                        <label class="tile12colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w12C2"></label>
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <input id="thirdTileColour" value="1155CC" size="6"
+                                            onblur="generateNavigation()" onchange="generateNavigation()"
+                                            class="jscolor">
+                                    </th>
+
+                                    <td class="text-center"><input type="radio" id="w1C3" name="tile1Colour" onchange="generateNavigation()">
+                                        <label class="tile1colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w1C3"></label>
+                                    </td>
+                                    <td class="text-center"> <input type="radio" id="w2C3" name="tile2Colour" onchange="generateNavigation()">
+                                        <label class="tile2colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w2C3"></label>
+                                    </td>
+                                    <td class="text-center"><input type="radio" id="w3C3" name="tile3Colour" onchange="generateNavigation()">
+                                        <label class="tile3colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w3C3"></label>
+                                    </td>
+                                    <td class="text-center"><input type="radio" id="w4C3" name="tile4Colour" onchange="generateNavigation()">
+                                        <label class="tile4colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w4C3"></label>
+                                    </td>
+                                    <td class="text-center"> <input type="radio" id="w5C3" name="tile5Colour" onchange="generateNavigation()">
+                                        <label class="tile5colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w5C3"></label>
+                                    </td>
+                                    <td class="text-center"><input type="radio" id="w6C3" name="tile6Colour" onchange="generateNavigation()">
+                                        <label class="tile6colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w6C3"></label>
+                                    </td>
+                                    <td class="text-center"><input type="radio" id="w7C3" name="tile7Colour" onchange="generateNavigation()">
+                                        <label class="tile7colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w7C3"></label>
+                                    </td>
+                                    <td class="text-center"><input type="radio" id="w8C3" name="tile8Colour" onchange="generateNavigation()">
+                                        <label class="tile8colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w8C3"></label>
+                                    </td>
+                                    <td class="text-center"><input type="radio" id="w9C3" name="tile9Colour" onchange="generateNavigation()">
+                                        <label class="tile9colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w9C3"></label>
+                                    </td>
+                                    <td class="text-center"><input type="radio" id="w10C3" name="tile10Colour" onchange="generateNavigation()">
+                                        <label class="tile10colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w10C3"></label>
+                                    </td>
+                                    <td class="text-center"><input type="radio" id="w11C3" name="tile11Colour" onchange="generateNavigation()">
+                                        <label class="tile11colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w11C3"></label>
+                                    </td>
+                                    <td class="text-center"><input type="radio" id="w12C3" name="tile12Colour" onchange="generateNavigation()">
+                                        <label class="tile12colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w12C3"></label>
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">
+                                        <input id="fourthTileColour" value="1155CC" size="6"
+                                            onblur="generateNavigation()" onchange="generateNavigation()"
+                                            class="jscolor">
+                                    </th>
+
+                                    <td class="text-center"><input type="radio" id="w1C4" name="tile1Colour" onchange="generateNavigation()">
+                                        <label class="tile1colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w1C4"></label>
+                                    </td>
+                                    <td class="text-center"> <input type="radio" id="w2C4" name="tile2Colour" onchange="generateNavigation()">
+                                        <label class="tile2colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w2C4"></label>
+                                    </td>
+                                    <td class="text-center"><input type="radio" id="w3C4" name="tile3Colour" onchange="generateNavigation()">
+                                        <label class="tile3colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w3C4"></label>
+                                    </td>
+                                    <td class="text-center"><input type="radio" id="w4C4" name="tile4Colour" onchange="generateNavigation()">
+                                        <label class="tile4colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w4C4"></label>
+                                    </td>
+                                    <td class="text-center"> <input type="radio" id="w5C4" name="tile5Colour" onchange="generateNavigation()">
+                                        <label class="tile5colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w5C4"></label>
+                                    </td>
+                                    <td class="text-center"><input type="radio" id="w6C4" name="tile6Colour" onchange="generateNavigation()">
+                                        <label class="tile6colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w6C4"></label>
+                                    </td>
+                                    <td class="text-center"><input type="radio" id="w7C4" name="tile7Colour" onchange="generateNavigation()">
+                                        <label class="tile7colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w7C4"></label>
+                                    </td>
+                                    <td class="text-center"><input type="radio" id="w8C4" name="tile8Colour" onchange="generateNavigation()">
+                                        <label class="tile8colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w8C4"></label>
+                                    </td>
+                                    <td class="text-center"><input type="radio" id="w9C4" name="tile9Colour" onchange="generateNavigation()">
+                                        <label class="tile9colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w9C4"></label>
+                                    </td>
+                                    <td class="text-center"><input type="radio" id="w10C4" name="tile10Colour" onchange="generateNavigation()">
+                                        <label class="tile10colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w10C4"></label>
+                                    </td>
+                                    <td class="text-center"><input type="radio" id="w11C4" name="tile11Colour" onchange="generateNavigation()">
+                                        <label class="tile11colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w11C4"></label>
+                                    </td>
+                                    <td class="text-center"><input type="radio" id="w12C4" name="tile12Colour" onchange="generateNavigation()">
+                                        <label class="tile12colour" style="font-weight: normal; font-size: 14pt"
+                                            for="w12C4"></label>
+                                    </td>
+
+
+                                </tr>
+
+
+
+                            </tbody>
+                        </table>
+
+
+                    </div>
+
+                </div>
+
+                <div class="tab-pane fade" id="dateSettings-tab-pane" role="tabpanel" aria-labelledby="dateSettings-tab"
+                    tabindex="0">
+                    <p class="tabDescriptor">Here you can change the date behaviours and triggers.</p>
+                    <em>Semester 1, 2023 pre-set</em><br /> <br />
+                    
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">Week</th>
+                            <th scope="col">Date</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">Week 1</th>
+                            <td><input type="datetime-local" value="2023-02-27T00:00" id="week1StartDayTime" name="week1StartDayTime" onblur="generateNavigation()" onchange="generateNavigation()"></td>
+                          </tr>
+                         
+                          <tr>
+                            <th scope="row">Week 2</th>
+                            <td><input type="datetime-local" value="2023-03-06T00:00" id="week2StartDayTime" name="week2StartDayTime" onblur="generateNavigation()" onchange="generateNavigation()"></td>
+                          </tr>
+
+                          <tr>
+                            <th scope="row">Week 3</th>
+                            <td> <input type="datetime-local" value="2023-03-13T00:00" id="week3StartDayTime" name="week3StartDayTime" onblur="generateNavigation()" onchange="generateNavigation()"></td>
+                          </tr>
+                          
+                          <tr>
+                            <th scope="row">Week 4</th>
+                            <td> <input type="datetime-local" value="2023-03-20T00:00" id="week4StartDayTime" name="week4StartDayTime" onblur="generateNavigation()" onchange="generateNavigation()"></td>
+                          </tr>
+
+                          <tr>
+                            <th scope="row">Week 5</th>
+                            <td> <input type="datetime-local" value="2023-03-27T00:00" id="week5StartDayTime" name="week5StartDayTime" onblur="generateNavigation()" onchange="generateNavigation()"></td>
+                          </tr>
+
+                          <tr>
+                            <th scope="row">Week 6</th>
+                            <td> <input type="datetime-local" value="2023-04-03T00:00" id="week6StartDayTime" name="week6StartDayTime" onblur="generateNavigation()" onchange="generateNavigation()"> </td>
+                          </tr>
+
+                          <tr>
+                            <th scope="row">Week 7 <sup>+</sup></th>
+                            <td> <input type="datetime-local" value="2023-04-17T00:00" id="week7StartDayTime" name="week7StartDayTime" onblur="generateNavigation()" onchange="generateNavigation()"></td>
+                          </tr>
+
+                          <tr>
+                            <th scope="row">Week 8</th>
+                            <td> <input type="datetime-local" value="2023-04-24T00:00" id="week8StartDayTime" name="week8StartDayTime" onblur="generateNavigation()" onchange="generateNavigation()"></td>
+                          </tr>
+
+                          <tr>
+                            <th scope="row">Week 9</th>
+                            <td> <input type="datetime-local" value="2023-05-01T00:00" id="week9StartDayTime" name="week9StartDayTime" onblur="generateNavigation()" onchange="generateNavigation()"></td>
+                          </tr>
+
+                          <tr>
+                            <th scope="row">Week 10</th>
+                            <td> <input type="datetime-local" value="2023-05-08T00:00" id="week10StartDayTime" name="week10StartDayTime" onblur="generateNavigation()" onchange="generateNavigation()"></td>
+                          </tr>
+
+                          <tr>
+                            <th scope="row">Week 11</th>
+                            <td> <input type="datetime-local" value="2023-05-15T00:00" id="week11StartDayTime" name="week11StartDayTime" onblur="generateNavigation()" onchange="generateNavigation()"></td>
+                          </tr>
+
+                          <tr>
+                            <th scope="row">Week 12</th>
+                            <td> <input type="datetime-local" value="2023-05-22T00:00" id="week12StartDayTime" name="week12StartDayTime" onblur="generateNavigation()" onchange="generateNavigation()"></td>
+                          </tr>
+
+                          <tr>
+                            <th scope="row">Week 13 <sup>*</sup></th>
+                            <td> <input type="datetime-local" value="2023-05-29T00:00" id="week13StartDayTime" name="week13StartDayTime" onblur="generateNavigation()" onchange="generateNavigation()"></td>
+                          </tr>
+
+
+
+                        </tbody>
+                      </table>
+                      <em><sup>+</sup> Mid-Semester break between week 7 &amp; 8</em> <br />
+                      <em><sup>*</sup> Week 13 (SWOT-VAC) needed to evaluate end of week 12 period</em><br /><br />
+
+                </div>
+
+                <div class="tab-pane fade" id="advancedSettings-tab-pane" role="tabpanel"
+                    aria-labelledby="advancedSettings-tab" tabindex="0">
+                    <p class="tabDescriptor">Here you can select and change advanced features.</p>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2" for="eaWeekColour">Early access Colour:</label>
+                        <div class="col-sm-10">
+                            <input id="eaWeekColour" value="FF0000" size="6" onblur="generateNavigation()"
+                                onchange="generateNavigation()" class="jscolor">
+                        </div>
+                    </div>
+
+                    <em>Below you can specify the 'early access' times to various weeks of work.</em><br /> <br />
+                    
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">Week</th>
+                            <th class="text-center" scope="col">Enabled</th>
+                            <th scope="col">Date</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">Week 1</th>
+                            <td class="text-center"><input type="checkbox" id="week1EAEnabled" name="week1EAEnabled" value="True" onchange="generateNavigation()"></td>
+                            <td><input type="datetime-local" value="2023-02-23T00:00" id="week1earlyAccessDayTime" name="week1earlyAccessDayTime" disabled onblur="generateNavigation()" onchange="generateNavigation()"></td>
+                          </tr>
+                         
+                          <tr>
+                            <th scope="row">Week 2</th>
+                            <td class="text-center"><input type="checkbox" id="week2EAEnabled" name="week2EAEnabled" value="True" onchange="generateNavigation()"></td>
+                            <td><input type="datetime-local" value="2023-03-02T00:00" id="week2earlyAccessDayTime" name="week2earlyAccessDayTime" disabled onblur="generateNavigation()" onchange="generateNavigation()"></td>
+                          </tr>
+
+                          <tr>
+                            <th scope="row">Week 3</th>
+                            <td class="text-center"><input type="checkbox" id="week3EAEnabled" name="week3EAEnabled" value="True" onchange="generateNavigation()"></td>
+                            <td> <input type="datetime-local" value="2023-03-09T00:00" id="week3earlyAccessDayTime" name="week3earlyAccessDayTime" disabled onblur="generateNavigation()" onchange="generateNavigation()"></td>
+                          </tr>
+                          
+                          <tr>
+                            <th scope="row">Week 4</th>
+                            <td class="text-center"><input type="checkbox" id="week4EAEnabled" name="week4EAEnabled" value="True" onchange="generateNavigation()"></td>
+                            <td> <input type="datetime-local" value="2023-03-16T00:00" id="week4earlyAccessDayTime" name="week4earlyAccessDayTime" disabled onblur="generateNavigation()" onchange="generateNavigation()"></td>
+                          </tr>
+
+                          <tr>
+                            <th scope="row">Week 5</th>
+                            <td class="text-center"><input type="checkbox" id="week5EAEnabled" name="week5EAEnabled" value="True" onchange="generateNavigation()"></td>
+                            <td> <input type="datetime-local" value="2023-03-23T00:00" id="week5earlyAccessDayTime" name="week5earlyAccessDayTime" disabled onblur="generateNavigation()" onchange="generateNavigation()"></td>
+                          </tr>
+
+                          <tr>
+                            <th scope="row">Week 6</th>
+                            <td class="text-center"><input type="checkbox" id="week6EAEnabled" name="week6EAEnabled" value="True" onchange="generateNavigation()"></td>
+                            <td> <input type="datetime-local" value="2023-03-30T00:00" id="week6earlyAccessDayTime" name="week6earlyAccessDayTime" disabled onblur="generateNavigation()" onchange="generateNavigation()"> </td>
+                          </tr>
+
+                          <tr>
+                            <th scope="row">Week 7 <sup>+</sup></th>
+                            <td class="text-center"><input type="checkbox" id="week7EAEnabled" name="week7EAEnabled" value="True" onchange="generateNavigation()"></td>
+                            <td> <input type="datetime-local" value="2023-04-06T00:00" id="week7earlyAccessDayTime" name="week7earlyAccessDayTime" disabled onblur="generateNavigation()" onchange="generateNavigation()"></td>
+                          </tr>
+
+                          <tr>
+                            <th scope="row">Week 8</th>
+                            <td class="text-center"><input type="checkbox" id="week8EAEnabled" name="week8EAEnabled" value="True" onchange="generateNavigation()"></td>
+                            <td> <input type="datetime-local" value="2023-04-24T00:00" id="week8earlyAccessDayTime" name="week8earlyAccessDayTime" disabled onblur="generateNavigation()" onchange="generateNavigation()"></td>
+                          </tr>
+
+                          <tr>
+                            <th scope="row">Week 9</th>
+                            <td class="text-center"><input type="checkbox" id="week9EAEnabled" name="week9EAEnabled" value="True" onchange="generateNavigation()"></td>
+                            <td> <input type="datetime-local" value="2023-05-01T00:00" id="week9earlyAccessDayTime" name="week9earlyAccessDayTime" disabled onblur="generateNavigation()" onchange="generateNavigation()"></td>
+                          </tr>
+
+                          <tr>
+                            <th scope="row">Week 10</th>
+                            <td class="text-center"><input type="checkbox" id="week10EAEnabled" name="week10EAEnabled" value="True" onchange="generateNavigation()"></td>
+                            <td> <input type="datetime-local" value="2023-05-08T00:00" id="week10earlyAccessDayTime" name="week10earlyAccessDayTime" disabled onblur="generateNavigation()" onchange="generateNavigation()"></td>
+                          </tr>
+
+                          <tr>
+                            <th scope="row">Week 11</th>
+                            <td class="text-center"><input type="checkbox" id="week11EAEnabled" name="week11EAEnabled" value="True" onchange="generateNavigation()"></td>
+                            <td> <input type="datetime-local" value="2023-05-15T00:00" id="week11earlyAccessDayTime" name="week11earlyAccessDayTime" disabled onblur="generateNavigation()" onchange="generateNavigation()"></td>
+                          </tr>
+
+                          <tr>
+                            <th scope="row">Week 12</th>
+                            <td class="text-center"><input type="checkbox" id="week12EAEnabled" name="week12EAEnabled" value="True" onchange="generateNavigation()"></td>
+                            <td> <input type="datetime-local" value="2023-05-22T00:00" id="week12earlyAccessDayTime" name="week12earlyAccessDayTime" disabled onblur="generateNavigation()" onchange="generateNavigation()"></td>
+                          </tr>
+
+                        </tbody>
+                      </table>
+                
+                </div>
+
+            </div>
+
+    </div>
+    </form>
+    <!--end form -->
+
+
+    </div>
+
+    <script>
+
+
+        $(function () {
+
+            $("input[name='naviType']").change(function () {
+                generateNavigation();
+            });
+
+            $("input[name='naviStyle']").change(function () {
+                generateNavigation();
+            });
+
+            $("input[name='unitCodeVal']").change(function () {
+                generateNavigation();
+            });
+
+            loadBlock();
+        });
+
+        
+
+        function generateNavigation() {
+            // Set Navigation Type
+
+            // Set Navigation Style
+
+            // Set Unit Code 
+
+            // Set UniqueMoodleID
+
+            var setNavigationType = $("input[name=naviType]:checked").val();
+            var setNavigationStyle = $("input[name=naviStyle]:checked").val();
+            var setUnitCode = document.getElementById('unitCode').value;
+            var setUniqueMoodle = document.getElementById('moodleID').value;
+
+
+            if (setNavigationType == "b12w" ){
+                loadBlock();
+            }
+            else if (setNavigationType == "d12w" ){
+                loadDonut();
+            }
+
+            // Set Colours of Admin Section + Highlight + Tile Text
+
+            var setAdminSectionColour = document.getElementById('adminBlockColour').value;
+            var setAdminSectionText = $("input[name=adminTextColour]:checked").val();
+
+            var setWeeklyHighlight = document.getElementById('activeWeekColour').value;
+            var setWeeklyText = $("input[name=tileTextColour]:checked").val();
+            
+            // Set the colour of all rows input value based on the respective chosen colour
+
+            document.getElementById('w1C1').value = document.getElementById('firstTileColour').value;
+            document.getElementById('w2C1').value = document.getElementById('firstTileColour').value;
+            document.getElementById('w3C1').value = document.getElementById('firstTileColour').value;
+            document.getElementById('w4C1').value = document.getElementById('firstTileColour').value;
+            document.getElementById('w5C1').value = document.getElementById('firstTileColour').value;
+            document.getElementById('w6C1').value = document.getElementById('firstTileColour').value;
+            document.getElementById('w7C1').value = document.getElementById('firstTileColour').value;
+            document.getElementById('w8C1').value = document.getElementById('firstTileColour').value;
+            document.getElementById('w9C1').value = document.getElementById('firstTileColour').value;
+            document.getElementById('w10C1').value = document.getElementById('firstTileColour').value;
+            document.getElementById('w11C1').value = document.getElementById('firstTileColour').value;
+            document.getElementById('w12C1').value = document.getElementById('firstTileColour').value;
+
+            document.getElementById('w1C2').value = document.getElementById('secondTileColour').value;
+            document.getElementById('w2C2').value = document.getElementById('secondTileColour').value;
+            document.getElementById('w3C2').value = document.getElementById('secondTileColour').value;
+            document.getElementById('w4C2').value = document.getElementById('secondTileColour').value;
+            document.getElementById('w5C2').value = document.getElementById('secondTileColour').value;
+            document.getElementById('w6C2').value = document.getElementById('secondTileColour').value;
+            document.getElementById('w7C2').value = document.getElementById('secondTileColour').value;
+            document.getElementById('w8C2').value = document.getElementById('secondTileColour').value;
+            document.getElementById('w9C2').value = document.getElementById('secondTileColour').value;
+            document.getElementById('w10C2').value = document.getElementById('secondTileColour').value;
+            document.getElementById('w11C2').value = document.getElementById('secondTileColour').value;
+            document.getElementById('w12C2').value = document.getElementById('secondTileColour').value;
+
+            document.getElementById('w1C3').value = document.getElementById('thirdTileColour').value;
+            document.getElementById('w2C3').value = document.getElementById('thirdTileColour').value;
+            document.getElementById('w3C3').value = document.getElementById('thirdTileColour').value;
+            document.getElementById('w4C3').value = document.getElementById('thirdTileColour').value;
+            document.getElementById('w5C3').value = document.getElementById('thirdTileColour').value;
+            document.getElementById('w6C3').value = document.getElementById('thirdTileColour').value;
+            document.getElementById('w7C3').value = document.getElementById('thirdTileColour').value;
+            document.getElementById('w8C3').value = document.getElementById('thirdTileColour').value;
+            document.getElementById('w9C3').value = document.getElementById('thirdTileColour').value;
+            document.getElementById('w10C3').value = document.getElementById('thirdTileColour').value;
+            document.getElementById('w11C3').value = document.getElementById('thirdTileColour').value;
+            document.getElementById('w12C3').value = document.getElementById('thirdTileColour').value;
+
+            document.getElementById('w1C4').value = document.getElementById('fourthTileColour').value;
+            document.getElementById('w2C4').value = document.getElementById('fourthTileColour').value;
+            document.getElementById('w3C4').value = document.getElementById('fourthTileColour').value;
+            document.getElementById('w4C4').value = document.getElementById('fourthTileColour').value;
+            document.getElementById('w5C4').value = document.getElementById('fourthTileColour').value;
+            document.getElementById('w6C4').value = document.getElementById('fourthTileColour').value;
+            document.getElementById('w7C4').value = document.getElementById('fourthTileColour').value;
+            document.getElementById('w8C4').value = document.getElementById('fourthTileColour').value;
+            document.getElementById('w9C4').value = document.getElementById('fourthTileColour').value;
+            document.getElementById('w10C4').value = document.getElementById('fourthTileColour').value;
+            document.getElementById('w11C4').value = document.getElementById('fourthTileColour').value;
+            document.getElementById('w12C4').value = document.getElementById('fourthTileColour').value;
+            
+            // set the colour of the respective colours based on whether selected
+
+            var setTile1Colour = document.querySelector('input[name="tile1Colour"]:checked').value;
+            var setTile2Colour = document.querySelector('input[name="tile2Colour"]:checked').value;
+            var setTile3Colour = document.querySelector('input[name="tile3Colour"]:checked').value;
+            var setTile4Colour = document.querySelector('input[name="tile4Colour"]:checked').value;
+            var setTile5Colour = document.querySelector('input[name="tile5Colour"]:checked').value;
+            var setTile6Colour = document.querySelector('input[name="tile6Colour"]:checked').value;
+            var setTile7Colour = document.querySelector('input[name="tile7Colour"]:checked').value;
+            var setTile8Colour = document.querySelector('input[name="tile8Colour"]:checked').value;
+            var setTile9Colour = document.querySelector('input[name="tile9Colour"]:checked').value;
+            var setTile10Colour = document.querySelector('input[name="tile10Colour"]:checked').value;
+            var setTile11Colour = document.querySelector('input[name="tile11Colour"]:checked').value;
+            var setTile12Colour = document.querySelector('input[name="tile12Colour"]:checked').value;
+
+            // date formater tool - to give credit https://blog.stevenlevithan.com/archives/javascript-date-format
+
+            var setTile1Date = dateFormat((document.getElementById('week1StartDayTime').value), "mmmm dd, yyyy HH:MM:ss"); 
+            var setTile2Date = dateFormat((document.getElementById('week2StartDayTime').value), "mmmm dd, yyyy HH:MM:ss");
+            var setTile3Date = dateFormat((document.getElementById('week3StartDayTime').value), "mmmm dd, yyyy HH:MM:ss");
+            var setTile4Date = dateFormat((document.getElementById('week4StartDayTime').value), "mmmm dd, yyyy HH:MM:ss");
+            var setTile5Date = dateFormat((document.getElementById('week5StartDayTime').value), "mmmm dd, yyyy HH:MM:ss");
+            var setTile6Date = dateFormat((document.getElementById('week6StartDayTime').value), "mmmm dd, yyyy HH:MM:ss");
+            var setTile7Date = dateFormat((document.getElementById('week7StartDayTime').value), "mmmm dd, yyyy HH:MM:ss");
+            var setTile8Date = dateFormat((document.getElementById('week8StartDayTime').value), "mmmm dd, yyyy HH:MM:ss");
+            var setTile9Date = dateFormat((document.getElementById('week9StartDayTime').value), "mmmm dd, yyyy HH:MM:ss");
+            var setTile10Date = dateFormat((document.getElementById('week10StartDayTime').value), "mmmm dd, yyyy HH:MM:ss");
+            var setTile11Date = dateFormat((document.getElementById('week11StartDayTime').value), "mmmm dd, yyyy HH:MM:ss");
+            var setTile12Date = dateFormat((document.getElementById('week12StartDayTime').value), "mmmm dd, yyyy HH:MM:ss");
+
+            var setEAColour = "" // document.getElementById('jscolor').value;
+
+            var setEarlyAccessWk1 = false;
+            var setEarlyAccessWk2 = false;
+            var setEarlyAccessWk3 = false;
+            var setEarlyAccessWk4 = false;
+            var setEarlyAccessWk5 = false;
+            var setEarlyAccessWk6 = false;
+            var setEarlyAccessWk7 = false;
+            var setEarlyAccessWk8 = false;
+            var setEarlyAccessWk9 = false;
+            var setEarlyAccessWk10 = false;
+            var setEarlyAccessWk11 = false;
+            var setEarlyAccessWk12 = false;
+
+
+           
+           // Early Accees Switches; to be refactored in the future 
+          
+            if (document.getElementById('week1EAEnabled').checked) { 
+                document.getElementById("week1earlyAccessDayTime").disabled = false;
+                setEarlyAccessWk1 = true;
+            } else {
+                document.getElementById("week1earlyAccessDayTime").disabled = true;
+                setEarlyAccessWk1 = false;
+            }
+            
+            if (document.getElementById('week2EAEnabled').checked) { 
+                document.getElementById("week2earlyAccessDayTime").disabled = false;
+                setEarlyAccessWk2 = true;
+            } else {
+                document.getElementById("week2earlyAccessDayTime").disabled = true;
+                setEarlyAccessWk2 = false;
+            }
+
+            if (document.getElementById('week3EAEnabled').checked) { 
+                document.getElementById("week3earlyAccessDayTime").disabled = false;
+                setEarlyAccessWk3 = true;
+            } else {
+                document.getElementById("week3earlyAccessDayTime").disabled = true;
+                setEarlyAccessWk3 = false;
+            }
+
+            if (document.getElementById('week4EAEnabled').checked) { 
+                document.getElementById("week4earlyAccessDayTime").disabled = false;
+                setEarlyAccessWk4 = true;
+            } else {
+                document.getElementById("week4earlyAccessDayTime").disabled = true;
+                setEarlyAccessWk4 = false;
+            }
+            
+            if (document.getElementById('week5EAEnabled').checked) { 
+                document.getElementById("week5earlyAccessDayTime").disabled = false;
+                setEarlyAccessWk5 = true;
+            } else {
+                document.getElementById("week5earlyAccessDayTime").disabled = true;
+                setEarlyAccessWk5 = false;
+            }
+
+            if (document.getElementById('week6EAEnabled').checked) { 
+                document.getElementById("week6earlyAccessDayTime").disabled = false;
+                setEarlyAccessWk6 = true;
+            } else {
+                document.getElementById("week6earlyAccessDayTime").disabled = true;
+                setEarlyAccessWk6 = false;
+            }
+        
+            if (document.getElementById('week7EAEnabled').checked) { 
+                document.getElementById("week7earlyAccessDayTime").disabled = false;
+                setEarlyAccessWk7 = true;
+            } else {
+                document.getElementById("week7earlyAccessDayTime").disabled = true;
+                setEarlyAccessWk7 = false;
+            }
+        
+            if (document.getElementById('week8EAEnabled').checked) { 
+                document.getElementById("week8earlyAccessDayTime").disabled = false;
+                setEarlyAccessWk8 = true;
+            } else {
+                document.getElementById("week8earlyAccessDayTime").disabled = true;
+                setEarlyAccessWk8 = false;
+            }
+        
+            if (document.getElementById('week9EAEnabled').checked) { 
+                document.getElementById("week9earlyAccessDayTime").disabled = false;
+                setEarlyAccessWk9 = true;
+            } else {
+                document.getElementById("week9earlyAccessDayTime").disabled = true;
+                setEarlyAccessWk9 = false;
+            }
+        
+            if (document.getElementById('week10EAEnabled').checked) { 
+                document.getElementById("week10earlyAccessDayTime").disabled = false;
+                setEarlyAccessWk10 = true;
+            } else {
+                document.getElementById("week10earlyAccessDayTime").disabled = true;
+                setEarlyAccessWk10 = false;
+            }
+        
+            if (document.getElementById('week11EAEnabled').checked) { 
+                document.getElementById("week11earlyAccessDayTime").disabled = false;
+                setEarlyAccessWk11 = true;
+            } else {
+                document.getElementById("week11earlyAccessDayTime").disabled = true;
+                setEarlyAccessWk11 = false;
+            }
+
+            if (document.getElementById('week12EAEnabled').checked) { 
+                document.getElementById("week12earlyAccessDayTime").disabled = false;
+                setEarlyAccessWk12 = true;
+            } else {
+                document.getElementById("week12earlyAccessDayTime").disabled = true;
+                setEarlyAccessWk12 = false;
+            }
+    
+            /* END EARLY ACCESS SWITCHES */
+        
+        
+        
+        
+        }
+
+        
+        function updatePreview (){
+          //  var textAreaSelect = document.getElementById('moodleBannerCode');
+          // textAreaSelect.value = HTML values, etc
+          // .css({"background-color": "yellow", "font-size": "200%"}); +
+          
+
+
+
+        }
+
+
+
+
+
+        function loadBlock(){
+            $("#navPreview").load("BlockNavCode.html");
+        }
+
+        function loadDonut(){
+            $("#navPreview").load("DonutNavCode.html");
+        }
+
+
+
+
+
+
+
+
+
+        /* REMOVE BEFORE UPLOADING / PUBLISHING
+
+        * Date Format 1.2.3
+        * (c) 2007-2009 Steven Levithan <stevenlevithan.com>
+        * MIT license
+        *
+        * Includes enhancements by Scott Trenda <scott.trenda.net>
+        * and Kris Kowal <cixar.com/~kris.kowal/>
+        *
+        * Accepts a date, a mask, or a date and a mask.
+        * Returns a formatted version of the given date.
+        * The date defaults to the current date/time.
+        * The mask defaults to dateFormat.masks.default.
+        */
+
+        var dateFormat = function () {
+            var	token = /d{1,4}|m{1,4}|yy(?:yy)?|([HhMsTt])\1?|[LloSZ]|"[^"]*"|'[^']*'/g,
+                timezone = /\b(?:[PMCEA][SDP]T|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time|(?:GMT|UTC)(?:[-+]\d{4})?)\b/g,
+                timezoneClip = /[^-+\dA-Z]/g,
+                pad = function (val, len) {
+                    val = String(val);
+                    len = len || 2;
+                    while (val.length < len) val = "0" + val;
+                    return val;
+                };
+
+            // Regexes and supporting functions are cached through closure
+            return function (date, mask, utc) {
+                var dF = dateFormat;
+
+                // You can't provide utc if you skip other args (use the "UTC:" mask prefix)
+                if (arguments.length == 1 && Object.prototype.toString.call(date) == "[object String]" && !/\d/.test(date)) {
+                    mask = date;
+                    date = undefined;
+                }
+
+                // Passing date through Date applies Date.parse, if necessary
+                date = date ? new Date(date) : new Date;
+                if (isNaN(date)) throw SyntaxError("invalid date");
+
+                mask = String(dF.masks[mask] || mask || dF.masks["default"]);
+
+                // Allow setting the utc argument via the mask
+                if (mask.slice(0, 4) == "UTC:") {
+                    mask = mask.slice(4);
+                    utc = true;
+                }
+
+                var	_ = utc ? "getUTC" : "get",
+                    d = date[_ + "Date"](),
+                    D = date[_ + "Day"](),
+                    m = date[_ + "Month"](),
+                    y = date[_ + "FullYear"](),
+                    H = date[_ + "Hours"](),
+                    M = date[_ + "Minutes"](),
+                    s = date[_ + "Seconds"](),
+                    L = date[_ + "Milliseconds"](),
+                    o = utc ? 0 : date.getTimezoneOffset(),
+                    flags = {
+                        d:    d,
+                        dd:   pad(d),
+                        ddd:  dF.i18n.dayNames[D],
+                        dddd: dF.i18n.dayNames[D + 7],
+                        m:    m + 1,
+                        mm:   pad(m + 1),
+                        mmm:  dF.i18n.monthNames[m],
+                        mmmm: dF.i18n.monthNames[m + 12],
+                        yy:   String(y).slice(2),
+                        yyyy: y,
+                        h:    H % 12 || 12,
+                        hh:   pad(H % 12 || 12),
+                        H:    H,
+                        HH:   pad(H),
+                        M:    M,
+                        MM:   pad(M),
+                        s:    s,
+                        ss:   pad(s),
+                        l:    pad(L, 3),
+                        L:    pad(L > 99 ? Math.round(L / 10) : L),
+                        t:    H < 12 ? "a"  : "p",
+                        tt:   H < 12 ? "am" : "pm",
+                        T:    H < 12 ? "A"  : "P",
+                        TT:   H < 12 ? "AM" : "PM",
+                        Z:    utc ? "UTC" : (String(date).match(timezone) || [""]).pop().replace(timezoneClip, ""),
+                        o:    (o > 0 ? "-" : "+") + pad(Math.floor(Math.abs(o) / 60) * 100 + Math.abs(o) % 60, 4),
+                        S:    ["th", "st", "nd", "rd"][d % 10 > 3 ? 0 : (d % 100 - d % 10 != 10) * d % 10]
+                    };
+
+                return mask.replace(token, function ($0) {
+                    return $0 in flags ? flags[$0] : $0.slice(1, $0.length - 1);
+                });
+            };
+        }();
+
+        // Some common format strings
+        dateFormat.masks = {
+            "default":      "ddd mmm dd yyyy HH:MM:ss",
+            shortDate:      "m/d/yy",
+            mediumDate:     "mmm d, yyyy",
+            longDate:       "mmmm d, yyyy",
+            fullDate:       "dddd, mmmm d, yyyy",
+            shortTime:      "h:MM TT",
+            mediumTime:     "h:MM:ss TT",
+            longTime:       "h:MM:ss TT Z",
+            isoDate:        "yyyy-mm-dd",
+            isoTime:        "HH:MM:ss",
+            isoDateTime:    "yyyy-mm-dd'T'HH:MM:ss",
+            isoUtcDateTime: "UTC:yyyy-mm-dd'T'HH:MM:ss'Z'"
+        };
+
+        // Internationalization strings
+        dateFormat.i18n = {
+            dayNames: [
+                "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat",
+                "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+            ],
+            monthNames: [
+                "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+                "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
+            ]
+        };
+
+        // For convenience...
+        Date.prototype.format = function (mask, utc) {
+            return dateFormat(this, mask, utc);
+        };
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
+
+
+
+</html>

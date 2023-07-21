@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<title>Moodle Navi-Maker v1.00</title>
+
+	<script src="https://kit.fontawesome.com/6aeb437c07.js" crossorigin="anonymous"></script>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+		crossorigin="anonymous"></script>
+	<script src="fontawesome-iconpicker.js"></script>
+	<script src="jscolor.js"></script>
+
+	<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
+	<link href="fontawesome-iconpicker.css" rel="stylesheet">
+
+	<!-- -->
+
+
+
+	<style>
+		label {
+			font-weight: bold;
+			font-size: 16pt;
+
+		}
+
+		.cc-selector input {
+			margin: 0;
+			padding: 0;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+		}
+
+
+		.cc-selector-2 input {
+			position: absolute;
+			z-index: 999;
+		}
+
+
+		.visa {
+			background-image: url(roundCap.png);
+		}
+
+		.mastercard {
+			background-image: url(squareCap.png);
+		}
+
+		.cc-selector-2 input:active+.drinkcard-cc,
+		.cc-selector input:active+.drinkcard-cc {
+			opacity: .9;
+		}
+
+		.cc-selector-2 input:checked+.drinkcard-cc,
+		.cc-selector input:checked+.drinkcard-cc {
+			-webkit-filter: none;
+			-moz-filter: none;
+			filter: none;
+		}
+
+		.drinkcard-cc {
+			cursor: pointer;
+			background-size: contain;
+			background-repeat: no-repeat;
+			display: inline-block;
+			width: 100px;
+			height: 70px;
+			-webkit-transition: all 100ms ease-in;
+			-moz-transition: all 100ms ease-in;
+			transition: all 100ms ease-in;
+			-webkit-filter: brightness(1.8) grayscale(1) opacity(.5);
+			-moz-filter: brightness(1.8) grayscale(1) opacity(.5);
+			filter: brightness(1.8) grayscale(1) opacity(.5);
+		}
+
+		.drinkcard-cc:hover {
+			-webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+			-moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+			filter: brightness(1.2) grayscale(.5) opacity(.9);
+		}
+		
+		
+
+
+
+	</style>
+
+</head>
+
+
+<body>
+
+	<div class="container">
+		
+		<h2>Welcome to the Moodle Navi-Maker</h2>
+		<em>Version 1.0</em>
+		
+		<hr />
+		<h4>Basic instructions</h4>
+		<ol>
+			<li>Work your way down the page, expanding the accordion to set various options</li>
+			<li>Use the (?) button for more information; Some might contain links to videos that give even further detail, along with some examples</li>
+			<li>Use the 'copy code' button at the bottom of the page to store the settings in memory</li> 
+			<li>Paste the 'copied code' into a Moodle Label or Page [using 'code view']</li>
+		</ol>
+
+
+		<hr />
+		
+	
+		
+		<div class="row">
+			<div class="col">
+
+
+				<div class="accordion accordion-flush" id="navigationSettings">
+				  
+				  
+				  <div class="accordion-item">
+					<h2 class="accordion-header" id="flush-headingOne">
+					  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+						Technical setup
+					  </button>
+					</h2>
+					<div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#navigationSettings">
+					  <div class="accordion-body">
+						
+						
+						<div class="form-group row">
+							<label class="col-sm-4" for="faLink">FontAwesome Link</label>
+							<div class="col-sm-6">
+								<input type="text" id="faLink" size="40" value="abc123" onblur="">
+							</div>
+					
+						
+						</div>
+						
+						
+						<div class="form-group row">
+							<label class="col-sm-4" for="moodleID">Unit's Moodle ID</label>
+							
+							<div class="col-sm-6">
+								<input type="text" id="moodleID" size="40" value="123456" onblur="">
+							</div>
+							
+							
+			
+					
+						
+						</div>
+						
+						<div class="form-group row">
+						
+						<label class="col-sm-4" for="headerTextColour">Navigation Mode:</label>
+
+						<div class="col-sm-6">
+							<input type="radio" id="navigationFree" name="navMode" value="freeNav" checked="checked">
+							<label style="font-weight: normal; font-size: 14pt" for="navigationFree">Free</label>
+
+
+
+							<input style="margin-left: 20px;" type="radio" id="navigationLockStepped" name="navMode" value="lockedNav">
+							<label style="font-weight: normal; font-size: 14pt" for="navigationLockStepped">Locked</label>
+							
+							</div>
+						</div>
+						
+						
+						<ul>
+							<li>Font awesome link / use moodle</li>
+							<li>Moodle Structure Setup</li>
+							<li>Moodle UniqueID</li>
+							<li>free navigation / lock-step</li>
+						</ul>						
+						
+					  </div>
+					</div>
+				  </div>
+				  
+				  <div class="accordion-item">
+					<h2 class="accordion-header" id="flush-headingTwo">
+					  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+						Choose Navigation Style
+					  </button>
+					</h2>
+					<div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#navigationSettings">
+					  <div class="accordion-body">
+						<ul>
+							<li>12 week block</li>
+							<li>12 week wheel</li>
+							<li>12 week 4 sections (rounded)</li>
+							<li>6 day wheel</li>
+							<li>4 sprint</li>
+							<li>4 Module</li>
+						
+						
+						</ul>
+					  </div>
+					</div>
+				  </div>
+				  
+					<div class="accordion-item">
+						<h2 class="accordion-header" id="flush-headingThree">
+						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+						Choose Colours
+						</button>
+						</h2>
+						<div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#navigationSettings">
+							<div class="accordion-body">
+								<ul>
+								<li>Admin section colour</li>
+								<li>Admin text colour: black / white</li>
+								<li>Highlight Colour</li>
+								<li>Weekly text colour: black / white</li>
+
+								<li>4 or 5 colour options // tick boxes for each section / week -- depends on chosen nav style</li>
+								<li>Theme names [based on chosen nav style]</li>
+
+
+								</ul>
+							</div>
+						</div>
+					</div>
+					
+					<div class="accordion-item">
+						<h2 class="accordion-header" id="flush-headingFour">
+						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+						Dates to unlock
+						</button>
+						</h2>
+						<div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#navigationSettings">
+							<div class="accordion-body">
+								<ul>
+								<li>dropdown - list (s1/2022 | s2/2022 | s1/2023</li>
+								<li>custom -- depends on chosen style [anything not 12 weeks]</li>
+
+
+								</ul>
+							</div>
+						</div>
+					</div>
+				
+				
+				
+				
+				
+				
+				
+				</div>
+			</div>
+			
+		<hr />	
+		
+		<div class="col-2">
+			<h2>Preview</h2>
+			
+
+			
+		</div>
+		
+		<div class="col">
+		<button type="button" class="btn btn-primary btn-sm">Copy Source Code</button>
+		</div>
+		
+		
+		
+		</div>
+		
+		
+		
+</body>
+
+
+
+
+
+</html>
